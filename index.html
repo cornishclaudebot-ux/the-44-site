@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 44 · Live Music Bar · Glendale, AZ</title>
+<meta name="description" content="The 44 is Phoenix's live music bar. High-impact live experiences and rockin' food in the heart of the West Valley. Live music 7 nights, late-night kitchen, order on Toast & Uber Eats, book your event.">
+<link rel="icon" href="assets/logo.png">
+<meta property="og:title" content="The 44 · Live Music Bar">
+<meta property="og:description" content="High-impact live experiences and rockin' food in the heart of Phoenix.">
+<meta property="og:image" content="assets/logo.png">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="specks" aria-hidden="true"></div>
+<div class="spotlight"></div>
+<div id="nav-mount"></div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <img src="assets/logo.png" alt="The 44" class="hero-logo">
+    </div>
+    <div class="hero-kicker">LIVE <b class="flicker">MUSIC</b> BAR</div>
+    <p class="hero-tag">High-impact live experiences and rockin' food in the heart of Phoenix.</p>
+    <div class="hero-chips">
+      <span class="live-pill" id="livePill"><span class="dot"></span><span id="liveText">Open Now</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>Glendale, AZ</span>
+      <a class="chip chip-link" data-cfg="posh" target="_blank" rel="noopener">Live Music 7 Nights</a>
+    </div>
+    <div id="tonight" aria-live="polite"></div>
+    <div class="hero-actions">
+      <a href="events.html" class="btn btn-primary">See What's On</a>
+      <a href="#order" class="btn btn-ghost">Order Food &amp; Drinks</a>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    Scroll
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="mq1"></div></div>
+
+<!-- WHAT'S ON (teaser) -->
+<section id="whatson">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">On The Stage</span>
+      <h2 class="sec-title">What's <em>On</em></h2>
+      <p class="sec-sub">Real shows, real lineups, straight from our box office. Here's what's coming up at The 44.</p>
+    </div>
+    <div class="events-list" id="events-teaser"></div>
+    <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+      <a href="events.html" class="btn btn-primary">Full Event Calendar</a>
+      <a href="#" data-cfg="posh" target="_blank" rel="noopener" class="btn btn-ghost">Tickets on Posh</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee alt" aria-hidden="true"><div class="marquee-track" id="mq2"></div></div>
+
+<!-- VINYL -->
+<section id="vinyl">
+  <div class="vinyl-stage">
+    <div class="vinyl-pin">
+      <div class="vinyl-inner">
+        <canvas id="vinylCanvas" aria-hidden="true"></canvas>
+        <div class="vinyl-copy">
+          <span class="eyebrow">Drop The Needle</span>
+          <h2 class="sec-title">Every Night Is a <em>Record</em></h2>
+          <p class="sec-sub">Rock, metal, punk and tributes. Seven nights a week.</p>
+          <a class="led-ticket" data-cfg="posh" target="_blank" rel="noopener"><img class="led-logo" src="assets/logo.png" alt=""><span class="led-copy">Get Tickets on Posh</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="wrap center">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Rockin' Food &amp; Cold Drinks</span>
+      <h2 class="sec-title">Order in <em>Two Taps</em></h2>
+      <p class="sec-sub">Skip the line or stay on the couch. Order ahead for pickup, or get it delivered late-night. The kitchen rocks til close.</p>
+    </div>
+    <div class="order-duo">
+      <!-- TOAST -->
+      <article class="plat-card toast reveal">
+        <div class="powered-by"><span class="pb-label">Powered by</span><img class="pb-logo" src="assets/brand/toast-logo.png" alt="Toast"><span class="pb-name pb-toast">Toast</span></div>
+        <h3>Pickup &amp; Order Ahead</h3>
+        <p>Build your order, pay online, and walk straight to the bar. No waiting, no missing the band.</p>
+        <ul class="plat-feats">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>The full menu, wings to flatbreads to burgers</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Schedule a pickup time around your night</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Pay once, skip the tab line</li>
+        </ul>
+        <a href="#" data-cfg="toast" target="_blank" rel="noopener" class="btn btn-toast btn-block">Order on Toast</a>
+      </article>
+      <!-- UBER EATS -->
+      <article class="plat-card uber reveal d1">
+        <div class="powered-by"><span class="pb-label">Powered by</span><img class="pb-logo pb-uber" src="assets/brand/ubereats.svg" alt="Uber Eats"></div>
+        <h3>Late-Night Delivery</h3>
+        <p>Craving wings at midnight? We deliver the full menu to your door, well past when most kitchens call it.</p>
+        <ul class="plat-feats">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Delivered hot to your door</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Late-night menu after the kitchen rush</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Track your order in real time</li>
+        </ul>
+        <a href="#" data-cfg="uber" target="_blank" rel="noopener" class="btn btn-uber btn-block">Order on Uber Eats</a>
+      </article>
+    </div>
+    <p style="margin-top:24px;color:var(--muted-2);font-size:.9rem">Hungry now? <a href="menu.html" style="color:var(--crimson-bright);font-weight:600">See the full menu →</a></p>
+  </div>
+</section>
+
+<!-- GAME NIGHTS / LEAGUES -->
+<section id="games">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">More Than The Music</span>
+      <h2 class="sec-title">Game <em>On</em></h2>
+      <p class="sec-sub">The stage is only half of it. We run leagues and game nights every week. Grab a team, grab a cue, ante up.</p>
+    </div>
+    <div class="games-grid">
+      <article class="game-card reveal">
+        <div class="game-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z"/><path d="M12 6a6 6 0 106 6 6 6 0 00-6-6zm0 10a4 4 0 114-4 4 4 0 01-4 4z"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Dart League</h3>
+        <p>Steel tip and soft tip. Join a team for league night, or just throw a few rounds with friends.</p>
+        <span class="game-tag">Weekly · ask for the schedule</span>
+      </article>
+      <article class="game-card reveal d1">
+        <div class="game-ic"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4.6" fill="#0a0708"/><circle cx="12" cy="10.7" r="1.05" fill="currentColor"/><circle cx="12" cy="13.3" r="1.35" fill="currentColor"/></svg></div>
+        <h3>Pool League</h3>
+        <p>Rack 'em up. League play and open tables all week. Sharks and rookies both welcome.</p>
+        <span class="game-tag">Weekly · ask for the schedule</span>
+      </article>
+      <article class="game-card reveal d2">
+        <div class="game-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C9.2 6.8 4 9 4 13.2A3.8 3.8 0 0010.4 16c-.2 1.6-1 2.8-2.4 3.6h8c-1.4-.8-2.2-2-2.4-3.6A3.8 3.8 0 0020 13.2C20 9 14.8 6.8 12 3z"/></svg></div>
+        <h3>Poker Night</h3>
+        <p>Ante up. Weekly poker night with a friendly table and a loud room. All skill levels.</p>
+        <span class="game-tag">Weekly · ask for the schedule</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW -->
+<section id="follow">
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="follow-card reveal">
+      <div>
+        <span class="eyebrow">Don't Miss A Beat</span>
+        <h2>Follow <em>The 44</em></h2>
+        <p>Show announcements, lineup drops, daily specials and the loudest nights in the West Valley. Tag us when you're in the room.</p>
+      </div>
+      <div class="follow-btns">
+        <a href="#" data-cfg="ig" target="_blank" rel="noopener" class="sbtn ig"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5 .06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.2 3.3-1.7 4.8-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.2-4.8-1.7-5-5C2.04 15.6 2 15.2 2 12s0-3.6.07-4.9c.2-3.3 1.7-4.8 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-9.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>Instagram</a>
+        <a href="#" data-cfg="tt" target="_blank" rel="noopener" class="sbtn tt"><svg viewBox="0 0 24 24"><path d="M16.5 5.8a4.8 4.8 0 01-3-1.3v8.8a5.5 5.5 0 11-5.5-5.5c.3 0 .6 0 .8.07v2.8a2.7 2.7 0 102 2.6V2h2.7a4.8 4.8 0 003 4.2z"/></svg>TikTok</a>
+        <a href="#" data-cfg="fb" target="_blank" rel="noopener" class="sbtn fb"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0022 12z"/></svg>Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Find Us</span><h2 class="sec-title">Roll Through <em>Tonight</em></h2></div>
+    <div class="visit-grid reveal">
+      <div class="visit-info">
+        <div class="row"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></div><div><div class="lbl">Location</div><div class="val"><a href="#" data-cfg="map" target="_blank" rel="noopener">4494 W Peoria Ave<small>Glendale, AZ 85302</small></a></div></div></div>
+        <div class="row"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.56 3.5 1 1 0 01-.24 1z"/></svg></div><div><div class="lbl">Reservations &amp; Info</div><div class="val"><a href="#" data-cfg="tel">(623) 842-1053</a></div></div></div>
+        <div class="row"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 100 22 11 11 0 000-22zm1 11h5v2h-7V6h2z"/></svg></div><div><div class="lbl">Hours</div><div class="val">Open Daily<small>1:00 PM to 2:00 AM</small></div></div></div>
+        <div class="row"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zm2 4 6 4 6-4"/></svg></div><div><div class="lbl">Event Booking</div><div class="val"><a href="#" data-cfg="mailDefault">book@the44.live</a></div></div></div>
+        <div class="socials">
+          <a href="#" data-cfg="ig" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5 .06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.2 3.3-1.7 4.8-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.2-4.8-1.7-5-5C2.04 15.6 2 15.2 2 12s0-3.6.07-4.9c.2-3.3 1.7-4.8 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-9.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg></a>
+          <a href="#" data-cfg="tt" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 5.8a4.8 4.8 0 01-3-1.3v8.8a5.5 5.5 0 11-5.5-5.5c.3 0 .6 0 .8.07v2.8a2.7 2.7 0 102 2.6V2h2.7a4.8 4.8 0 003 4.2z"/></svg></a>
+          <a href="#" data-cfg="fb" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0022 12z"/></svg></a>
+        </div>
+      </div>
+      <div class="visit-map" id="visit-map">
+        <div id="themap"></div>
+        <div class="map-card">
+          <div class="mc-name">The 44 Live Music Bar</div>
+          <div class="mc-addr">4494 W Peoria Ave · Glendale, AZ 85302</div>
+          <div class="maplinks" style="justify-content:center">
+            <a class="btn btn-primary btn-sm" data-cfg="mapapple" target="_blank" rel="noopener">Apple Maps</a>
+            <a class="btn btn-ghost btn-sm" data-cfg="mapgoogle" target="_blank" rel="noopener">Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="app.js"></script>
+<script src="fx-dotfield.js"></script>
+<script src="fx-vinyl.js"></script>
+<script src="fx-tonight.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  if(typeof L==='undefined') return;
+  var el=document.getElementById('themap'); if(!el) return;
+  var BAR=[33.5831282,-112.1552594];
+  var map=L.map(el,{zoomControl:false,attributionControl:false,scrollWheelZoom:false,dragging:false,doubleClickZoom:false,boxZoom:false,keyboard:false,touchZoom:false}).setView([33.46,-112.07],10);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(map);
+  var icon=L.divIcon({className:'bar-marker',html:'<span class="bm-ping"></span><svg class="bm-pin" viewBox="0 0 24 34" width="30" height="42"><path d="M12 0C5.9 0 1 4.9 1 11c0 7.7 9.6 21.3 10 21.9.2.3.6.3.8 0C12.4 32.3 23 18.7 23 11 23 4.9 18.1 0 12 0z" fill="#E21B2C" stroke="#ffffff" stroke-width="1.4"/><circle cx="12" cy="11" r="4" fill="#1a0d0d"/></svg>',iconSize:[30,42],iconAnchor:[15,40]});
+  L.marker(BAR,{icon:icon}).addTo(map);
+  var flown=false;
+  function fly(){ if(flown)return; flown=true; setTimeout(function(){ map.invalidateSize(); map.flyTo(BAR,16,{duration:3.6,easeLinearity:.18}); },140); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fly();io.disconnect();}});},{threshold:.3});
+    io.observe(document.getElementById('visit-map'));
+  } else { setTimeout(fly,800); }
+  setTimeout(function(){map.invalidateSize();},400);
+  window.addEventListener('resize',function(){map.invalidateSize();});
+})();
+</script>
+</body>
+</html>

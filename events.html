@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Music & Events · The 44</title>
+<meta name="description" content="Every upcoming show at The 44 Live Music Bar in Glendale, AZ. Live bands, tributes, touring acts and late nights. Get your tickets on Posh.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="specks" aria-hidden="true"></div>
+<div class="spotlight"></div>
+<div id="nav-mount"></div>
+
+<main>
+<section class="page-top events-hero">
+  <div class="wrap" style="padding-top:0">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Live Music · The Calendar</span>
+      <h2 class="sec-title">What's <em>On</em> at The 44</h2>
+      <p class="sec-sub">Every upcoming show, straight from our box office. Rock, metal, punk, tributes and touring acts, seven nights a week. Tap any night to grab tickets and know exactly what you're walking into.</p>
+      <div class="hero-chips" style="justify-content:flex-start;margin-top:24px">
+        <span class="chip">Penny Beers Every Day · 1¢ a Pour</span>
+        <span class="chip">Tickets on Posh</span>
+        <span class="chip">21+ After 9PM</span>
+      </div>
+    </div>
+
+    <div id="tonight" aria-live="polite" style="margin:0 0 30px"></div>
+    <div class="events-list" id="events-list"></div>
+
+    <div class="follow-card reveal" style="margin-top:60px">
+      <div>
+        <span class="eyebrow">Play Our Stage</span>
+        <h2>Are You The <em>Next</em> Act?</h2>
+        <p>Booking bands, residencies, touring routes and open-mic slots. If you've got a set, we've got a stage and a crowd.</p>
+      </div>
+      <div class="follow-btns">
+        <a href="book.html" class="btn btn-primary">Book the Venue</a>
+        <a href="#" data-cfg="posh" target="_blank" rel="noopener" class="btn btn-led"><img class="led-logo" src="assets/logo.png" alt="">All Tickets on Posh</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="app.js"></script>
+<script src="fx-dotfield.js"></script>
+<script src="fx-tonight.js"></script>
+</body>
+</html>

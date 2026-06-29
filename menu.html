@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu · Rockin' Food · The 44</title>
+<meta name="description" content="The 44's rockin' food menu. Smoked wings, smashburgers, loaded nachos, cold drafts and signature cocktails. Order ahead on Toast or get it delivered on Uber Eats.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain"></div>
+<div class="specks" aria-hidden="true"></div>
+<div class="spotlight"></div>
+<div id="nav-mount"></div>
+
+<main>
+<!-- intro -->
+<section id="deck-intro" class="page-top">
+  <div class="wrap center" style="padding-bottom:30px">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">The Kitchen</span>
+      <h2 class="sec-title">The <em>Menu</em></h2>
+      <p class="sec-sub">Bar food that actually slaps, built to pair with a cold one and a loud band. Keep scrolling and we'll deal you the deck.</p>
+    </div>
+    <div class="scroll-cue" style="position:static;transform:none">
+      <div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      Scroll to deal the deck
+    </div>
+  </div>
+</section>
+
+<!-- the card deck (spreads as you scroll) -->
+<section class="deck-stage" id="deck-stage">
+  <div class="deck-pin" id="deck-pin">
+    <div class="deck-head">
+      <span class="eyebrow">Rockin' Food</span>
+      <h2>The <em>Spread</em></h2>
+      <p>Every plate, dealt out one by one.</p>
+    </div>
+    <!-- dish cards injected by app.js -->
+    <div class="deck-progress"><span>The Menu</span><div class="bar"><i id="deckBar"></i></div><span>Full Spread</span></div>
+  </div>
+</section>
+
+<!-- FULL MENU, by the act -->
+<section id="fullmenu">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">The Full Set</span>
+      <h2 class="sec-title">The Whole <em>Menu</em></h2>
+      <p class="sec-sub">Our kitchen runs like a show, act by act. Order any of it ahead on Toast.</p>
+    </div>
+    <div class="menu-acts">
+      <div class="act reveal">
+        <div class="act-head"><h3>Opening Act</h3><span class="act-sub">Starters</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Wings <small>ranch or blue cheese, carrots and celery</small></span><span class="mi-dots"></span><span class="mi-price">$8 / $15</span></li>
+          <li><span class="mi-name">Cauliflower Wings</span><span class="mi-dots"></span><span class="mi-price">$12</span></li>
+          <li><span class="mi-name">The Baskets <small>one, two or three picks</small></span><span class="mi-dots"></span><span class="mi-price">$8 / $11 / $13</span></li>
+          <li><span class="mi-name">Basket of Fries</span><span class="mi-dots"></span><span class="mi-price">$6</span></li>
+          <li><span class="mi-name">Bacon Ranch Cheese Fries</span><span class="mi-dots"></span><span class="mi-price">$9</span></li>
+          <li><span class="mi-name">Pretzels with Queso</span><span class="mi-dots"></span><span class="mi-price">$7</span></li>
+          <li><span class="mi-name">Corn Dogs</span><span class="mi-dots"></span><span class="mi-price">$3</span></li>
+          <li><span class="mi-name">Fresh Veggie Selection</span><span class="mi-dots"></span><span class="mi-price">$6</span></li>
+          <li><span class="mi-name">The 44 Drunken Nachos <small>cheese sauce, cotija, jalapenos, pico</small></span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Cheese Quesadilla</span><span class="mi-dots"></span><span class="mi-price">$8</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>Intermission</h3><span class="act-sub">Bowls &amp; Sliders</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Rice Bowl <small>jasmine rice, steamed veggies</small></span><span class="mi-dots"></span><span class="mi-price">$12</span></li>
+          <li><span class="mi-name">Chicken Sliders</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">Cod Sliders</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">Philly Sliders</span><span class="mi-dots"></span><span class="mi-price">$18</span></li>
+          <li><span class="mi-name">Shrimp Po Boy Sliders</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>Green Room</h3><span class="act-sub">Salads &amp; Flatbreads</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">House Salad</span><span class="mi-dots"></span><span class="mi-price">$8</span></li>
+          <li><span class="mi-name">Cobb Salad</span><span class="mi-dots"></span><span class="mi-price">$13</span></li>
+          <li><span class="mi-name">Build Your Own Salad</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Caprese Flatbread</span><span class="mi-dots"></span><span class="mi-price">$12</span></li>
+          <li><span class="mi-name">The Basic Bitch <small>five cheese, marinara</small></span><span class="mi-dots"></span><span class="mi-price">$12</span></li>
+          <li><span class="mi-name">Hawaiian</span><span class="mi-dots"></span><span class="mi-price">$14</span></li>
+          <li><span class="mi-name">Bell Biv Devour Supreme</span><span class="mi-dots"></span><span class="mi-price">$18</span></li>
+          <li><span class="mi-name">Margherita</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Red Hot Chili Peppers <small>pepperoni, basil, hot honey</small></span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Californication</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">The Fresh Prinzza Bell Air</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">The Fo Fo Pesto</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">White Lightning</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Cluckin Buffalo Blaze</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Picky Bitch <small>build your own</small></span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>Direct Support</h3><span class="act-sub">Burgers &amp; Sandwiches</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Burger Sliders</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">The 44 Burger</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">The Jace</span><span class="mi-dots"></span><span class="mi-price">$13</span></li>
+          <li><span class="mi-name">Flamin Lips</span><span class="mi-dots"></span><span class="mi-price">$15</span></li>
+          <li><span class="mi-name">Guns N Burgers</span><span class="mi-dots"></span><span class="mi-price">$18</span></li>
+          <li><span class="mi-name">BLT</span><span class="mi-dots"></span><span class="mi-price">$13</span></li>
+          <li><span class="mi-name">Grilled Cheese</span><span class="mi-dots"></span><span class="mi-price">$12</span></li>
+          <li><span class="mi-name">Chicken Sandwich</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">Philly Cheesesteak</span><span class="mi-dots"></span><span class="mi-price">$17</span></li>
+          <li><span class="mi-name">French Dip</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">Shrimp Po Boy</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+          <li><span class="mi-name">Cod Sandwich</span><span class="mi-dots"></span><span class="mi-price">$16</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>Headliners</h3><span class="act-sub">Tacos &amp; Baskets</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Tacos <small>cilantro, onions, salsa</small></span><span class="mi-dots"></span><span class="mi-price">$3</span></li>
+          <li><span class="mi-name">Fried Cod Basket</span><span class="mi-dots"></span><span class="mi-price">$9</span></li>
+          <li><span class="mi-name">Fried Shrimp Basket</span><span class="mi-dots"></span><span class="mi-price">$9</span></li>
+          <li><span class="mi-name">Chicken Strips</span><span class="mi-dots"></span><span class="mi-price">$8</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>Closing Acts</h3><span class="act-sub">Dessert</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Cream Filled Churros</span><span class="mi-dots"></span><span class="mi-price">$6</span></li>
+        </ul>
+      </div>
+      <div class="act reveal">
+        <div class="act-head"><h3>The Bar</h3><span class="act-sub">To-Go Beverages</span></div>
+        <ul class="menu-list">
+          <li><span class="mi-name">Fountain Sodas</span><span class="mi-dots"></span><span class="mi-price">$4</span></li>
+          <li><span class="mi-name">Domestic Beer</span><span class="mi-dots"></span><span class="mi-price">$5</span></li>
+          <li><span class="mi-name">Imports</span><span class="mi-dots"></span><span class="mi-price">$6</span></li>
+          <li><span class="mi-name">PBR</span><span class="mi-dots"></span><span class="mi-price">$4</span></li>
+          <li><span class="mi-name">Seltzers &amp; Ciders</span><span class="mi-dots"></span><span class="mi-price">$7</span></li>
+          <li><span class="mi-name">Red Bull / Celsius</span><span class="mi-dots"></span><span class="mi-price">$7</span></li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted-2);font-size:.85rem;margin-top:34px">Prices and items pulled from our Toast menu. Tap to order, it's always current there.</p>
+  </div>
+</section>
+
+<!-- order CTA after the deck -->
+<section id="order">
+  <div class="wrap center">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Hungry?</span>
+      <h2 class="sec-title">Get It <em>Now</em></h2>
+      <p class="sec-sub">Order ahead for pickup on Toast, or have it delivered late-night on Uber Eats. The full menu, however you want it.</p>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+      <a href="#" data-cfg="toast" target="_blank" rel="noopener" class="btn btn-toast">Order Pickup on Toast</a>
+      <a href="#" data-cfg="uber" target="_blank" rel="noopener" class="btn btn-uber">Late-Night Delivery on Uber Eats</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="menu-photos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
