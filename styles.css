@@ -157,8 +157,12 @@ section{position:relative}
 .hero-kicker{font-family:'Righteous';font-size:clamp(1.4rem,4.5vw,2.6rem);letter-spacing:.32em;text-transform:uppercase;color:#fff;text-indent:.32em;margin-top:14px;
   text-shadow:0 0 6px rgba(255,255,255,.22),0 0 18px rgba(255,255,255,.10)}
 /* MUSIC = glowing red neon bar sign (real neon tube look) */
-.hero-kicker b{color:#ff5765;
-  text-shadow:0 0 2px #fff,0 0 5px rgba(255,255,255,.85),0 0 10px #ff3b47,0 0 17px var(--crimson-bright)}
+.hero-kicker b{position:relative;color:#ff5765;
+  text-shadow:0 0 2px #fff,0 0 6px rgba(255,255,255,.85),0 0 12px #ff3b47,0 0 22px var(--crimson-bright)}
+/* soft blurred glow that bleeds crimson onto the background smoothly (no banding) */
+.hero-kicker b::before{content:"";position:absolute;left:50%;top:50%;width:320%;height:400%;transform:translate(-50%,-50%);
+  background:radial-gradient(60% 55% at 50% 50%,rgba(226,27,44,.62),rgba(226,27,44,.24) 42%,transparent 72%);
+  filter:blur(30px);z-index:-1;pointer-events:none}
 .flicker{animation:neonBuzz 5.5s infinite}
 @keyframes neonBuzz{0%,28%,30%,61%,63%,90%,100%{opacity:1}29%{opacity:.5}62%{opacity:.4}91%,93%{opacity:.72}}
 .hero-tag{font-size:clamp(1rem,2.2vw,1.32rem);color:var(--muted);max-width:620px;margin:22px auto 6px;font-weight:300}
