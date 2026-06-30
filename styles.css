@@ -49,8 +49,8 @@ img{display:block;max-width:100%}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 h1,h2,h3,.display{font-family:'Righteous',cursive;font-weight:400;letter-spacing:.5px;line-height:1.02}
 
-.grain{position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.05;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* film-grain overlay removed (went pixelated/boxy over the bright neon) */
+.grain{display:none}
 .spotlight{position:fixed;width:640px;height:640px;left:0;top:0;border-radius:50%;pointer-events:none;z-index:1;
   background:radial-gradient(circle,rgba(226,27,44,.16),transparent 60%);transform:translate(-50%,-50%);
   transition:opacity .5s;opacity:0;will-change:transform;mix-blend-mode:screen}
