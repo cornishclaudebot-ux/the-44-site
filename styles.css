@@ -157,8 +157,8 @@ section{position:relative}
 .hero-kicker{font-family:'Righteous';font-size:clamp(1.4rem,4.5vw,2.6rem);letter-spacing:.32em;text-transform:uppercase;color:#fff;text-indent:.32em;margin-top:14px;
   text-shadow:0 0 6px rgba(255,255,255,.22),0 0 18px rgba(255,255,255,.10)}
 /* MUSIC = glowing red neon bar sign (real neon tube look) */
-.hero-kicker b{color:#ff7280;
-  text-shadow:0 0 3px #fff,0 0 9px #fff,0 0 18px #ff3b47,0 0 34px #ff2d3f,0 0 60px var(--crimson-bright),0 0 96px var(--crimson-bright),0 0 130px #ff1a2b}
+.hero-kicker b{color:#ff5765;
+  text-shadow:0 0 2px #fff,0 0 5px rgba(255,255,255,.85),0 0 10px #ff3b47,0 0 17px var(--crimson-bright)}
 .flicker{animation:neonBuzz 5.5s infinite}
 @keyframes neonBuzz{0%,28%,30%,61%,63%,90%,100%{opacity:1}29%{opacity:.5}62%{opacity:.4}91%,93%{opacity:.72}}
 .hero-tag{font-size:clamp(1rem,2.2vw,1.32rem);color:var(--muted);max-width:620px;margin:22px auto 6px;font-weight:300}
