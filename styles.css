@@ -570,9 +570,7 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 @keyframes ringSoothe{0%{transform:scale(.18);opacity:0}18%{opacity:.4}100%{transform:scale(1);opacity:0}}
 .map-pin-link{cursor:pointer}
 .map-pin-link:hover .map-pin svg{filter:drop-shadow(0 6px 16px rgba(226,27,44,.6))}
-/* chipping-paint specks scattered across the site (white flecks, like the logo's distress) */
-.specks{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.5;mix-blend-mode:screen;
-  background-image:url('assets/specks.svg');background-size:440px 440px}
+/* (chipping-paint specks overlay removed for a clean black background) */
 /* Leaflet map: cinematic zoom from a Phoenix-wide view down to the bar */
 #themap{position:absolute;inset:0;width:100%;height:100%;background:#0a0708;z-index:0}
 .leaflet-container{background:#0a0708!important;font-family:inherit}
