@@ -543,13 +543,13 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 
 /* EVENTS: red live-crowd behind the header, fading out over the calendar */
 .events-hero{position:relative;overflow:hidden}
-.events-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(120% 80% at 50% 0%,rgba(134,15,15,.30),transparent 60%),
-    linear-gradient(180deg,rgba(10,7,8,.60),rgba(10,7,8,.90) 62%),
-    url('assets/photos/dj-red.webp') center 16%/cover;
-  filter:saturate(1.12) contrast(1.03);
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 34%,transparent 60%);
-  mask-image:linear-gradient(180deg,#000 0%,#000 34%,transparent 60%)}
+.events-hero::before{content:"";position:absolute;left:0;right:0;top:0;height:1150px;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 70% at 50% 0%,rgba(134,15,15,.32),transparent 62%),
+    linear-gradient(180deg,rgba(58,6,9,.70),rgba(10,7,8,.92) 82%),
+    url('assets/photos/guitar-jump.jpg') center 30%/cover;
+  filter:saturate(1.15) contrast(1.05);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 100%)}
 .events-hero > .wrap{position:relative;z-index:1}
 
 /* HOME · What's On: warm stage guitarist behind the teaser */
