@@ -538,11 +538,64 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 .menu-preview.show{opacity:1}
 .menu-preview img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* events page: real red stage shot behind the header */
+/* ============ real photos as tinted section backdrops ============ */
+/* All layered dark + crimson-tinted so text stays readable. Subtle mood only. */
+
+/* EVENTS: red live-crowd behind the header, fading out over the calendar */
 .events-hero{position:relative;overflow:hidden}
 .events-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(120% 80% at 50% 0%,rgba(134,15,15,.28),transparent 60%)}
+  background:radial-gradient(120% 80% at 50% 0%,rgba(134,15,15,.30),transparent 60%),
+    linear-gradient(180deg,rgba(10,7,8,.60),rgba(10,7,8,.90) 62%),
+    url('assets/photos/dj-red.webp') center 16%/cover;
+  filter:saturate(1.12) contrast(1.03);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 34%,transparent 60%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 34%,transparent 60%)}
 .events-hero > .wrap{position:relative;z-index:1}
+
+/* HOME · What's On: warm stage guitarist behind the teaser */
+#whatson{position:relative;overflow:hidden}
+#whatson > .wrap{position:relative;z-index:1}
+#whatson::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,7,8,.76),rgba(10,7,8,.90)),
+    url('assets/photos/guitar-stage.jpg') center 22%/cover;
+  filter:saturate(1.1) brightness(.95);opacity:.8;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent)}
+
+/* HOME · Vinyl: wall of fire behind the spinning record */
+.vinyl-pin::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,7,8,.74),rgba(10,7,8,.9)),
+    url('assets/photos/guitar-fire.webp') center/cover;
+  filter:saturate(1.05);opacity:.38;
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 44%,#000 26%,transparent 80%);
+  mask-image:radial-gradient(120% 100% at 50% 44%,#000 26%,transparent 80%)}
+
+/* HOME · Games: club crowd (blue re-tinted crimson) behind the league cards */
+#games{position:relative;overflow:hidden}
+#games > .wrap{position:relative;z-index:1}
+#games::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,7,8,.78),rgba(10,7,8,.91)),
+    url('assets/photos/dj-blue.webp') center 30%/cover;
+  filter:hue-rotate(138deg) saturate(1.4) brightness(.9);opacity:.6;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
+
+/* HOME · Follow: party couch shot inside the follow card */
+.follow-card > div{position:relative;z-index:1}
+.follow-card::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:14px;
+  background:linear-gradient(90deg,rgba(20,16,17,.96) 0%,rgba(20,16,17,.92) 46%,rgba(20,16,17,.44) 100%),
+    url('assets/photos/couch-girls.jpg') right 28%/cover;
+  filter:saturate(1.12) brightness(.92);opacity:.92}
+
+/* BOOK: black-and-white cheers (re-tinted crimson) behind the header */
+.book-top{position:relative;overflow:hidden}
+.book-top > .wrap{position:relative;z-index:1}
+.book-top::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,7,8,.70),rgba(10,7,8,.94)),
+    url('assets/photos/cheers-bw.jpg') center 18%/cover;
+  filter:sepia(1) saturate(4.2) hue-rotate(-42deg) brightness(.7) contrast(1.04);opacity:.6;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 300px,transparent 600px);
+  mask-image:linear-gradient(180deg,#000 0,#000 300px,transparent 600px)}
 
 /* ============ readability + polish ============ */
 /* kill the busy dot-matrix LED overlay (was hard to read / unprofessional) */
