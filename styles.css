@@ -195,11 +195,13 @@ section{position:relative}
 @keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ---------- events / calendar ---------- */
-.events-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.events-list{display:flex;flex-direction:column;gap:0;position:relative}
+.events-list::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:100vw;height:1px;background:var(--line);pointer-events:none}
 .month-label{font-family:'Righteous';font-size:1.5rem;color:#fff;margin:38px 0 14px;display:flex;align-items:center;gap:14px}
 .month-label::after{content:"";flex:1;height:1px;background:var(--line)}
-.erow{display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:center;padding:20px 12px;border-bottom:1px solid var(--line-2);
+.erow{display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:center;padding:20px 12px;
   transition:.3s var(--ease);position:relative}
+.erow::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100vw;height:1px;background:var(--line-2);pointer-events:none}
 .erow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--crimson-bright);transform:scaleY(0);transform-origin:center;transition:.3s}
 .erow:hover{background:rgba(226,27,44,.06);padding-left:20px}
 .erow:hover::before{transform:scaleY(1)}
