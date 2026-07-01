@@ -524,12 +524,12 @@ function eventRow(ev){
   function computeSlots(){
     const cwid=cards[0].offsetWidth||300, chei=cards[0].offsetHeight||440;
     const wide=innerWidth>=820;
-    endScale = wide ? 0.76 : 0.5;
-    const wantSX = cwid*(wide?1.5:0.56);
-    const maxSX = innerWidth/2 - (cwid*endScale)/2 - 10;   // keep outer cards on-screen
-    const SX = Math.min(wantSX, Math.max(60,maxSX));
-    const SY = chei*(wide?0.47:0.34);
-    const yBase = innerHeight*(wide?0.05:0.03);   // nudge grid down so the top row clears the header
+    endScale = wide ? 0.9 : 0.52;
+    const wantSX = cwid*(wide?0.9:0.56);      // ~touching columns (minimal gap)
+    const maxSX = innerWidth/2 - (cwid*endScale)/2 - 8;   // keep outer cards on-screen
+    const SX = Math.min(wantSX, Math.max(56,maxSX));
+    const SY = chei*(wide?0.45:0.33);          // ~touching rows
+    const yBase = innerHeight*0.02;            // small nudge; header is compact
     slots=cards.map((c,i)=>{
       const col=i%3, row=Math.floor(i/3);
       return {x:(col-1)*SX, y:(row*2-1)*SY + yBase};
