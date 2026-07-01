@@ -562,16 +562,6 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent)}
 
-/* HOME · Games: club crowd (blue re-tinted crimson) behind the league cards */
-#games{position:relative;overflow:hidden}
-#games > .wrap{position:relative;z-index:1}
-#games::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(10,7,8,.78),rgba(10,7,8,.91)),
-    url('assets/photos/dj-blue.webp') center 30%/cover;
-  filter:hue-rotate(138deg) saturate(1.4) brightness(.9);opacity:.6;
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);
-  mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
-
 /* HOME · Follow: red hands-up crowd as the full backdrop, glass card on top */
 #follow{position:relative;overflow:hidden}
 #follow .dotfield{display:none}
