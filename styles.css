@@ -580,12 +580,24 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 16%,#000 84%,transparent)}
 
-/* HOME · Follow: party couch shot inside the follow card */
+/* HOME · Follow: red hands-up crowd as the full backdrop, glass card on top */
+#follow{position:relative;overflow:hidden}
+#follow .dotfield{display:none}
+#follow::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,7,8,.50),rgba(10,7,8,.82) 90%),
+    url('assets/photos/crowd-red.webp') center 28%/cover;
+  filter:saturate(1.14) contrast(1.05)}
+.follow-card{background:rgba(12,8,9,.56);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.16)}
 .follow-card > div{position:relative;z-index:1}
-.follow-card::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:14px;
-  background:linear-gradient(90deg,rgba(20,16,17,.96) 0%,rgba(20,16,17,.92) 46%,rgba(20,16,17,.44) 100%),
-    url('assets/photos/couch-girls.jpg') right 28%/cover;
-  filter:saturate(1.12) brightness(.92);opacity:.92}
+
+/* HOME · Order: cheers/drinks photo instead of the dot field */
+#order{overflow:hidden}
+#order .dotfield{display:none}
+#order::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(90% 60% at 50% 0%,rgba(134,15,15,.24),transparent 60%),
+    linear-gradient(180deg,rgba(10,7,8,.82),rgba(10,7,8,.90)),
+    url('assets/photos/cheers-bar.webp') center/cover;
+  filter:saturate(1.1) contrast(1.02)}
 
 /* BOOK: black-and-white cheers (re-tinted crimson) behind the header */
 .book-top{position:relative;overflow:hidden}
