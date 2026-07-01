@@ -30,38 +30,39 @@ const CONFIG = {
 CONFIG.mapGoogle = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.address);
 CONFIG.mapApple  = "https://maps.apple.com/?q=" + encodeURIComponent(CONFIG.address);
 
-/* ---- REAL upcoming events, pulled live from posh.vip/g/the44 (2026-06-27) ---- */
-/* Each links to the Posh storefront for tickets. To deep-link a single show,
-   set its `url` to that event's posh.vip/e/... page. */
+/* ---- REAL upcoming events, pulled live from posh.vip/g/the44 ---- */
+/* Each event deep-links to its own posh.vip/e/<slug> ticket page via `url`
+   (slugs scraped + verified live 2026-07-01). Buttons fall back to CONFIG.posh
+   only if a `url` is missing. */
 const EVENTS = [
-  {date:"2026-06-27", time:"6:00 PM", title:"Memorial Concert for our friend Dom Villegas"},
-  {date:"2026-07-03", time:"7:00 PM", title:"The Meteors w/ Not Dead Yet, Red Shirts Die First, VicTims & The Kentucky Rifles, ChaChooga"},
-  {date:"2026-07-10", time:"7:00 PM", title:"Adema w/ Navagon, Faultline & Tridon"},
-  {date:"2026-07-11", time:"7:00 PM", title:"Gunshine w/ Atomic Kings & Jet Black Romance"},
-  {date:"2026-07-17", time:"7:00 PM", title:"Junk Drawer w/ Blonde, Horns Up, Dizzy Mavis & Blissful Intentions"},
-  {date:"2026-07-18", time:"7:00 PM", title:"Bullet Boys w/ Whiskey Dogz, Ghost of 88 & RevUnion"},
-  {date:"2026-07-24", time:"8:00 PM", title:"Menace Mary w/ A Perfect Tool"},
-  {date:"2026-07-25", time:"7:00 PM", title:"Fraxures w/ Dead Groove, Murderone, Beowulf, Knowing Forever & Hollow Riot"},
-  {date:"2026-07-28", time:"7:00 PM", title:"Ex-Faces w/ Saints of Solomon, Deep Within, Apex Nemesis & ShowMeGod"},
-  {date:"2026-07-31", time:"8:00 PM", title:"Dance Electra"},
-  {date:"2026-08-01", time:"7:00 PM", title:"Lucid Intent w/ Bleed the Fifth, Wrath Upon Eden & Street Creep"},
-  {date:"2026-08-08", time:"8:00 PM", title:"Missing Persons w/ Mills End, TwoFew & 24 B4 40"},
-  {date:"2026-08-15", time:"8:00 PM", title:"The Zeppelin IV", tag:"Tribute"},
-  {date:"2026-08-21", time:"8:00 PM", title:"Soul Persuasion"},
-  {date:"2026-08-22", time:"8:00 PM", title:"Pity The Foo"},
-  {date:"2026-08-28", time:"8:00 PM", title:"Power Drive"},
-  {date:"2026-08-29", time:"8:00 PM", title:"New Destiny"},
-  {date:"2026-09-04", time:"6:00 PM", title:"Kottonmouth Kings w/ Property Six, N2, Spook Squad, OG Clinto & Dizzy Vee"},
-  {date:"2026-09-05", time:"7:00 PM", title:"The Dickies w/ Toxic Energy, Mike and the Molotov's, None & Scorpion vs. Tarantula"},
-  {date:"2026-09-11", time:"8:00 PM", title:"Menace Mary"},
-  {date:"2026-09-16", time:"7:00 PM", title:"TRAPT: The Then til Now Tour w/ Sygnal To Noise, TwoFew & Part Ridge Family"},
-  {date:"2026-09-18", time:"8:00 PM", title:"Octane"},
-  {date:"2026-09-26", time:"8:00 PM", title:"Animal Magnetism & AZ/DZ", tag:"Tribute"},
-  {date:"2026-10-03", time:"8:00 PM", title:"Without Fear"},
-  {date:"2026-10-24", time:"8:00 PM", title:"RED WHITE AND NU", tag:"New Date"},
-  {date:"2026-11-12", time:"6:00 PM", title:"Killer Dwarfs w/ Lit Up"},
-  {date:"2026-11-20", time:"8:00 PM", title:"Green Jello"},
-  {date:"2026-11-24", time:"6:00 PM", title:"A Killer's Confession w/ Dizasterpiece & Dead Things"}
+  {date:"2026-06-27", time:"6:00 PM", title:"Memorial Concert for our friend Dom Villegas", url:"https://posh.vip/e/memorial-concert-for-our-friend-dom-villegas"},
+  {date:"2026-07-03", time:"7:00 PM", title:"The Meteors w/ Not Dead Yet, Red Shirts Die First, VicTims & The Kentucky Rifles, ChaChooga", url:"https://posh.vip/e/the-meteors-with-horns-up-red-shirts-die-first"},
+  {date:"2026-07-10", time:"7:00 PM", title:"Adema w/ Navagon, Faultline & Tridon", url:"https://posh.vip/e/adema"},
+  {date:"2026-07-11", time:"7:00 PM", title:"Gunshine w/ Atomic Kings & Jet Black Romance", url:"https://posh.vip/e/gunshine-w-atomic-kings-jet-black-romance"},
+  {date:"2026-07-17", time:"7:00 PM", title:"Junk Drawer w/ Blonde, Horns Up, Dizzy Mavis & Blissful Intentions", url:"https://posh.vip/e/junk-drawer-w-blonde-horns-up-dizzy-mavis-blissful-intentions"},
+  {date:"2026-07-18", time:"7:00 PM", title:"Bullet Boys w/ Whiskey Dogz, Ghost of 88 & RevUnion", url:"https://posh.vip/e/bullet-boys-wiskey-dogz-ghost-88"},
+  {date:"2026-07-24", time:"8:00 PM", title:"Menace Mary w/ A Perfect Tool", url:"https://posh.vip/e/menace-mary-w-a-perfect-tool"},
+  {date:"2026-07-25", time:"7:00 PM", title:"Fraxures w/ Dead Groove, Murderone, Beowulf, Knowing Forever & Hollow Riot", url:"https://posh.vip/e/fraxures-w-dead-groove-murderone-beowulf-knowing-forever-and-hollow-riot"},
+  {date:"2026-07-28", time:"7:00 PM", title:"Ex-Faces w/ Saints of Solomon, Deep Within, Apex Nemesis & ShowMeGod", url:"https://posh.vip/e/exfaces-saints-of-solomon-deep-within-apex-nemesis-showmegod"},
+  {date:"2026-07-31", time:"8:00 PM", title:"Dance Electra", url:"https://posh.vip/e/dance-electra"},
+  {date:"2026-08-01", time:"7:00 PM", title:"Lucid Intent w/ Bleed the Fifth, Wrath Upon Eden & Street Creep", url:"https://posh.vip/e/lucid-intent-w-bleed-the-fifth-and-more-tba"},
+  {date:"2026-08-08", time:"8:00 PM", title:"Missing Persons w/ Mills End, TwoFew & 24 B4 40", url:"https://posh.vip/e/missing-persons-w-mills-end-24-b4-40"},
+  {date:"2026-08-15", time:"8:00 PM", title:"The Zeppelin IV", tag:"Tribute", url:"https://posh.vip/e/the-zeppelin-iv"},
+  {date:"2026-08-21", time:"8:00 PM", title:"Soul Persuasion", url:"https://posh.vip/e/soul-persuasion-1"},
+  {date:"2026-08-22", time:"8:00 PM", title:"Pity The Foo", url:"https://posh.vip/e/pity-the-foo"},
+  {date:"2026-08-28", time:"8:00 PM", title:"Power Drive", url:"https://posh.vip/e/power-drive"},
+  {date:"2026-08-29", time:"8:00 PM", title:"New Destiny", url:"https://posh.vip/e/new-destiny-1"},
+  {date:"2026-09-04", time:"6:00 PM", title:"Kottonmouth Kings w/ Property Six, N2, Spook Squad, OG Clinto & Dizzy Vee", url:"https://posh.vip/e/kottonmouth-kings-w-property-six-n2-spook-squad-og-clinto-dizzy-vee"},
+  {date:"2026-09-05", time:"7:00 PM", title:"The Dickies w/ Toxic Energy, Mike and the Molotov's, None & Scorpion vs. Tarantula", url:"https://posh.vip/e/the-dickies-w-toxic-energy-mike-and-the-molotovs-none-scorpion-vs-tarantula"},
+  {date:"2026-09-11", time:"8:00 PM", title:"Menace Mary", url:"https://posh.vip/e/menace-mary"},
+  {date:"2026-09-16", time:"7:00 PM", title:"TRAPT: The Then til Now Tour w/ Sygnal To Noise, TwoFew & Part Ridge Family", url:"https://posh.vip/e/trapt-the-then-til-now-tour-w-sygnal-to-noise-twofew-part-ridge-family"},
+  {date:"2026-09-18", time:"8:00 PM", title:"Octane", url:"https://posh.vip/e/octane-1"},
+  {date:"2026-09-26", time:"8:00 PM", title:"Animal Magnetism & AZ/DZ", tag:"Tribute", url:"https://posh.vip/e/azdz"},
+  {date:"2026-10-03", time:"8:00 PM", title:"Without Fear", url:"https://posh.vip/e/without-fear"},
+  {date:"2026-10-24", time:"8:00 PM", title:"RED WHITE AND NU", tag:"New Date", url:"https://posh.vip/e/elote-korn-tribute-w-be-quiet-and-drive-deftones-tribute"},
+  {date:"2026-11-12", time:"6:00 PM", title:"Killer Dwarfs w/ Lit Up", url:"https://posh.vip/e/killer-dwarfs-wlit-up"},
+  {date:"2026-11-20", time:"8:00 PM", title:"Green Jello", url:"https://posh.vip/e/green-jello"},
+  {date:"2026-11-24", time:"6:00 PM", title:"A Killer's Confession w/ Dizasterpiece & Dead Things", url:"https://posh.vip/e/a-killers-confession-wdizasterpiece-dead-things"}
 ];
 
 /* ---- menu / food (sample — swap copy + drop real photos in assets/food/) ---- */
@@ -474,7 +475,7 @@ function eventRow(ev){
     <div class="edate"><div class="dow">${f.dow}</div><div class="dnum">${f.dnum}</div><div class="mon">${f.mon}</div></div>
     <div class="einfo"><div class="ehead">${s.head}${tag}</div>${s.sup?`<div class="esupport">${s.sup}</div>`:''}
       <div class="etime">${IC.clock} Doors ${ev.time}</div></div>
-    <div class="eticket"><a href="${CONFIG.posh}" target="_blank" rel="noopener" class="btn btn-led btn-sm" data-vibe="you will always feel good if your intentions are good"><img class="led-logo" src="assets/logo.png" alt="" width="18" height="18">Get Tickets</a></div>
+    <div class="eticket"><a href="${ev.url || CONFIG.posh}" target="_blank" rel="noopener" class="btn btn-led btn-sm" data-vibe="you will always feel good if your intentions are good"><img class="led-logo" src="assets/logo.png" alt="" width="18" height="18">Get Tickets</a></div>
   </div>`;
 }
 // full calendar (events page)
