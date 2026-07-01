@@ -72,7 +72,11 @@ const FOOD = [
   {n:"Chicken Strips",    d:"Hand-breaded and golden, served with fries and your choice of sauce.", price:"$8", tag:"", img:"assets/food/tenders.jpg", cat:"tenders"},
   {n:"Caprese Flatbread", d:"Fresh mozzarella, tomato, basil and a balsamic drizzle on crispy flatbread.", price:"$12", tag:"Shareable", img:"assets/food/flatbread.jpg", cat:"flatbread"},
   {n:"French Dip",        d:"Chopped steak and provolone on a toasted roll, with au jus and fries.", price:"$16", tag:"", img:"assets/food/frenchdip.jpg", cat:"sandwich"},
-  {n:"Rice Bowl",         d:"Jasmine rice, steamed broccoli, cauliflower and carrots.", price:"$12", tag:"", img:"assets/food/ricebowl.jpg", cat:"bowl"}
+  {n:"Rice Bowl",         d:"Jasmine rice, steamed broccoli, cauliflower and carrots.", price:"$12", tag:"", img:"assets/food/ricebowl.jpg", cat:"bowl"},
+  {n:"Drunken Nachos",     d:"Cheese sauce, cotija, jalapeños and pico. Built to share.", price:"$15", tag:"Signature", img:"assets/menu/the-44-drunken-nachos.jpg", cat:"nachos"},
+  {n:"Tacos",              d:"Street style with cilantro, onions and fresh salsa.", price:"$3", tag:"Headliner", img:"assets/menu/tacos.jpg", cat:"tacos"},
+  {n:"Philly Cheesesteak", d:"Shaved steak, peppers and melted provolone on a hoagie.", price:"$17", tag:"", img:"assets/menu/philly-cheesesteak.jpg", cat:"sandwich"},
+  {n:"Pretzels & Queso",   d:"Warm soft pretzels with a side of house queso.", price:"$7", tag:"Shareable", img:"assets/menu/pretzels.jpg", cat:"pretzel"}
 ];
 
 /* ---- inline-SVG plated-dish map (photo-ready CSS/SVG until real shots land) ---- */
@@ -526,26 +530,31 @@ function eventRow(ev){
   const cards=[...pin.querySelectorAll('.dcard')];
   const N=cards.length;
   // taller stage so each card gets its own scroll window
-  stage.style.height=(N*42+140)+'vh';
+  stage.style.height=(N*34+130)+'vh';
 
   // base centering for absolute cards
   cards.forEach(c=>{c.style.left='50%';c.style.top='50%';c.style.transition='none';c.style.willChange='transform,opacity';});
 
-  // 6 spread slots: 3 columns x 2 rows -> TL, TM, TR (top), BL, BM, BR (bottom)
+  // spread slots: fill the row edge-to-edge (5 cols on wide screens, fewer on small)
   let slots=[], endScale=0.76;
   function computeSlots(){
     const cwid=cards[0].offsetWidth||300, chei=cards[0].offsetHeight||440;
-    const wide=innerWidth>=820;
-    endScale = wide ? 0.95 : 0.54;
-    const GAP = wide ? 14 : 10;                 // even space between cards
-    const wantSX = cwid*endScale + GAP;         // column centers = card width + gap
-    const maxSX = innerWidth/2 - (cwid*endScale)/2 - 8;   // keep outer cards on-screen
-    const SX = Math.min(wantSX, Math.max(56,maxSX));
-    const SY = (chei*endScale + GAP)/2;          // row centers = card height + gap
-    const yBase = innerHeight*0.02;            // small nudge; header is compact
+    const COLS = innerWidth>=1180 ? 5 : innerWidth>=760 ? 3 : 2;
+    const rows = Math.ceil(N/COLS);
+    const margin = innerWidth>=760 ? 30 : 14;
+    const GAP = innerWidth>=760 ? 16 : 10;
+    const availW = innerWidth - margin*2;
+    // scale each card so a full row of COLS + gaps spans the whole width
+    let es = (availW - GAP*(COLS-1)) / (cwid*COLS);
+    es = Math.min(es, innerWidth>=760 ? 0.98 : 0.62);
+    endScale = es;
+    const colStep = cwid*es + GAP;               // center-to-center horizontally
+    const rowStep = chei*es + GAP;               // center-to-center vertically
+    const yBase = innerHeight*0.02;
     slots=cards.map((c,i)=>{
-      const col=i%3, row=Math.floor(i/3);
-      return {x:(col-1)*SX, y:(row*2-1)*SY + yBase};
+      const row=Math.floor(i/COLS), col=i%COLS;
+      const inRow=Math.min(COLS, N-row*COLS);    // center a partial last row too
+      return {x:(col-(inRow-1)/2)*colStep, y:(row-(rows-1)/2)*rowStep + yBase};
     });
   }
   computeSlots();
