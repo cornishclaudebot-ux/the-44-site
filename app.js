@@ -520,13 +520,19 @@ function eventRow(ev){
   cards.forEach(c=>{c.style.left='50%';c.style.top='50%';c.style.transition='none';c.style.willChange='transform,opacity';});
 
   // 6 spread slots: 3 columns x 2 rows -> TL, TM, TR (top), BL, BM, BR (bottom)
-  let slots=[];
+  let slots=[], endScale=0.76;
   function computeSlots(){
     const cwid=cards[0].offsetWidth||300, chei=cards[0].offsetHeight||440;
-    const SX=cwid*0.58, SY=chei*0.36;
+    const wide=innerWidth>=820;
+    endScale = wide ? 0.76 : 0.5;
+    const wantSX = cwid*(wide?1.5:0.56);
+    const maxSX = innerWidth/2 - (cwid*endScale)/2 - 10;   // keep outer cards on-screen
+    const SX = Math.min(wantSX, Math.max(60,maxSX));
+    const SY = chei*(wide?0.47:0.34);
+    const yBase = innerHeight*(wide?0.05:0.03);   // nudge grid down so the top row clears the header
     slots=cards.map((c,i)=>{
       const col=i%3, row=Math.floor(i/3);
-      return {x:(col-1)*SX, y:(row*2-1)*SY};
+      return {x:(col-1)*SX, y:(row*2-1)*SY + yBase};
     });
   }
   computeSlots();
@@ -548,7 +554,7 @@ function eventRow(ev){
       const x=sx+(slot.x-sx)*dp;
       const y=sy+(slot.y-sy)*dp;
       const rot=srot*(1-dp);
-      const sc=0.92-0.42*dp;
+      const sc=(endScale-0.06)+0.06*dp;
       c.style.visibility='visible';
       c.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px) rotate(${rot}deg) scale(${sc})`;
       c.style.opacity=String(0.5+0.5*Math.min(1,dp*3+0.3));
