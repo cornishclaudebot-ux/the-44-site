@@ -333,6 +333,17 @@ function fillMarquee(id, items){
 const MQ=["Live Music 7 Nights","Cold Beer","Rockin' Food","Late Night Eats","Penny Beers Daily","Glendale AZ","Book Your Event","Open Til 2AM"];
 fillMarquee('mq1',MQ); fillMarquee('mq2',MQ);
 
+// equalizer visualizer bars (red gradient, moving up and down)
+document.querySelectorAll('.eq').forEach(eq=>{
+  eq.innerHTML='';
+  for(let i=0;i<30;i++){
+    const s=document.createElement('span');
+    s.style.animationDelay=(-Math.random()*1.2).toFixed(2)+'s';
+    s.style.animationDuration=(0.65+Math.random()*0.7).toFixed(2)+'s';
+    eq.appendChild(s);
+  }
+});
+
 // live open/closed badge
 (function(){
   const pillEl=document.getElementById('livePill'); if(!pillEl) return;

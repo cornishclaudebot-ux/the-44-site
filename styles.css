@@ -179,11 +179,9 @@ section{position:relative}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .scroll-cue{position:relative;margin-top:42px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;
   font-size:.66rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2)}
-.eq{display:flex;align-items:flex-end;gap:4px;height:30px}
-.eq span{width:4px;background:var(--crimson-bright);border-radius:2px;animation:eq 1s ease-in-out infinite}
-.eq span:nth-child(1){animation-delay:-.7s}.eq span:nth-child(2){animation-delay:-.2s}.eq span:nth-child(3){animation-delay:-.5s}
-.eq span:nth-child(4){animation-delay:-.9s}.eq span:nth-child(5){animation-delay:-.3s}.eq span:nth-child(6){animation-delay:-.6s}.eq span:nth-child(7){animation-delay:-.1s}
-@keyframes eq{0%,100%{height:6px}50%{height:30px}}
+.eq{display:flex;align-items:flex-end;gap:3px;height:46px}
+.eq span{width:4px;border-radius:2px;background:linear-gradient(to top,#4a0808 0%,#860F0F 24%,#E21B2C 64%,#ff3b45 100%);animation:eq .9s ease-in-out infinite}
+@keyframes eq{0%,100%{height:10%}50%{height:100%}}
 
 /* ---------- marquee ---------- */
 .marquee{background:var(--crimson-bright);color:#fff;padding:13px 0;overflow:hidden;white-space:nowrap;border-top:2px solid #000;border-bottom:2px solid #000;position:relative;z-index:4}
@@ -540,8 +538,8 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 
 /* events page: real red stage shot behind the header */
 .events-hero{position:relative;overflow:hidden}
-.events-hero::before{content:"";position:absolute;inset:0;z-index:0;background:url('assets/gallery/live-red.jpg') center 28%/cover;opacity:.2;
-  -webkit-mask-image:linear-gradient(180deg,#000,transparent 78%);mask-image:linear-gradient(180deg,#000,transparent 78%)}
+.events-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% 0%,rgba(134,15,15,.28),transparent 60%)}
 .events-hero > .wrap{position:relative;z-index:1}
 
 /* ============ readability + polish ============ */
