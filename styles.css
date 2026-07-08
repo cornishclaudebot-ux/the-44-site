@@ -91,14 +91,19 @@ header.site.scrolled{background:rgba(8,5,6,.85);backdrop-filter:blur(14px);borde
 .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.24)}
 .btn-ghost:hover{border-color:#fff;background:#fff;color:#000;transform:translateY(-2px)}
 .btn-block{width:100%}
+.btn.is-disabled,a.is-disabled{opacity:.55;cursor:not-allowed;pointer-events:none}
+.evt:focus-visible{outline:2px solid var(--crimson-bright);outline-offset:3px}
+.success-fallback{margin-top:10px;font-size:.85rem;color:var(--muted-2)}
+.success-fallback a{color:var(--crimson-bright);font-weight:600}
 .btn-sm{padding:9px 16px;font-size:.74rem}
 
 .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:1100}
 .hamburger span{width:26px;height:2px;background:#fff;transition:.3s}
 .mobile-menu{position:fixed;inset:0;background:rgba(6,4,5,.98);backdrop-filter:blur(8px);z-index:1050;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:.4s}
+  align-items:center;justify-content:flex-start;gap:18px;padding:96px 24px 48px;overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;transition:opacity .4s}
 .mobile-menu.open{opacity:1;pointer-events:auto}
-.mobile-menu a{font-family:'Righteous';font-size:1.7rem;color:#fff;letter-spacing:1px}
+.mobile-menu a{font-family:'Righteous';font-size:1.45rem;color:#fff;letter-spacing:1px;text-align:center}
+.mobile-menu a.is-disabled{opacity:.5;cursor:not-allowed}
 .mobile-menu .mm-social{display:flex;gap:18px;margin-top:6px}
 .mobile-menu .mm-social a svg{width:26px;height:26px;fill:var(--crimson-bright)}
 

@@ -5,6 +5,7 @@ const CONFIG = {
   // --- ORDERING (replace with real store URLs) ---
   toast: "https://order.toasttab.com/online/the44live",   // REAL Toast online ordering
   uber:  "https://www.ubereats.com/store/the-44",          // TODO real Uber Eats store URL
+  uberVerified: false,   // flip to true once the real store URL above is confirmed; until then Uber shows "coming soon"
   // --- TICKETS (REAL) ---
   posh:  "https://posh.vip/g/the44",
   // --- CONTACT (REAL) ---
@@ -13,10 +14,13 @@ const CONFIG = {
   address: "4494 W Peoria Ave, Glendale, AZ 85302",
   // --- EVENT EMAILS (one inbox per type — confirm/create) ---
   emails: {
-    corporate: "corporate@the44.live",   // TODO confirm
-    private:   "private@the44.live",      // TODO confirm
-    talent:    "talent@the44.live",       // TODO confirm
-    specialty: "specialty@the44.live",    // TODO confirm
+    // All route to the confirmed catch-all until per-type inboxes are provisioned
+    // and send-tested. Routing still works because the event type is written into
+    // the subject line. Restore per-type addresses only after each is confirmed.
+    corporate: "book@the44.live",
+    private:   "book@the44.live",
+    talent:    "book@the44.live",
+    specialty: "book@the44.live",
     default:   "book@the44.live"          // REAL catch-all
   },
   // --- SOCIALS (REAL) ---
@@ -286,8 +290,9 @@ function buildModal(){
         </form>
         <div class="modal-success" id="modalSuccess">
           <div class="check">${IC.check}</div>
-          <h4>Your email is ready to send</h4>
-          <p>We opened a pre-filled message to <span class="em" id="successEmail">book@the44.live</span>. Just hit send and we'll get right back to you.</p>
+          <h4>Almost there, hit send</h4>
+          <p>We tried to open a pre-filled email to <span class="em" id="successEmail">book@the44.live</span>. Just press send in your mail app.</p>
+          <p class="success-fallback">Nothing opened? Email <a id="successMail" href="mailto:${CONFIG.emails.default}">${CONFIG.emails.default}</a> or call <a href="tel:${CONFIG.phoneRaw}">${CONFIG.phone}</a> and we'll take it from there.</p>
         </div>
       </div>
     </div>
@@ -306,6 +311,16 @@ const mapUrl = CONFIG.mapGoogle; // back-compat alias for the Google search URL
 const mapApple = CONFIG.mapApple, mapGoogle = CONFIG.mapGoogle;
 document.querySelectorAll('[data-cfg]').forEach(el=>{
   const k = el.getAttribute('data-cfg');
+  // Uber Eats store URL is unconfirmed — don't ship a dead link (reads as a scam).
+  // Disable the control and label it honestly until CONFIG.uberVerified is true.
+  if(k==='uber' && !CONFIG.uberVerified){
+    el.removeAttribute('href');
+    el.setAttribute('aria-disabled','true');
+    el.classList.add('is-disabled');
+    el.textContent = 'Delivery coming soon';
+    el.addEventListener('click', ev=>ev.preventDefault());
+    return;
+  }
   const map = {toast:CONFIG.toast,uber:CONFIG.uber,posh:CONFIG.posh,ig:CONFIG.ig,fb:CONFIG.fb,tt:CONFIG.tt,
                map:mapGoogle,mapgoogle:mapGoogle,mapapple:mapApple};
   if(k in map) el.href = map[k];
@@ -447,14 +462,18 @@ document.querySelectorAll('.eq').forEach(eq=>{
 (function(){
   const host=document.getElementById('events-types'); if(!host) return;
   host.innerHTML=EVENT_TYPES.map(ev=>`
-    <article class="evt reveal" data-key="${ev.key}">
-      <div class="icon"><svg viewBox="0 0 24 24">${ev.icon}</svg></div>
+    <article class="evt reveal" data-key="${ev.key}" role="button" tabindex="0" aria-label="Request ${ev.title}">
+      <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true">${ev.icon}</svg></div>
       <h3>${ev.title}</h3>
       <p>${ev.desc}</p>
-      <div class="route"><svg viewBox="0 0 24 24" width="14" height="14">${IC.mail.match(/<path[^>]*>/)[0]}</svg>Routes to <b>${CONFIG.emails[ev.key]}</b></div>
+      <div class="route"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">${IC.mail.match(/<path[^>]*>/)[0]}</svg>Routes to <b>${CONFIG.emails[ev.key]}</b></div>
       <div class="req">Request This ${IC.arrow}</div>
     </article>`).join('');
-  host.querySelectorAll('.evt').forEach(c=>c.addEventListener('click',()=>window.openBooking(c.dataset.key)));
+  host.querySelectorAll('.evt').forEach(c=>{
+    const open=()=>window.openBooking(c.dataset.key);
+    c.addEventListener('click',open);
+    c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); } });
+  });
 })();
 
 /* ---------- render events (calendar + home teaser) ---------- */
