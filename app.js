@@ -668,4 +668,10 @@ console.log('%cyou will always feel good if your intentions are good','color:#A5
    ============================================================ */
 const BEAT_MS = 600;
 function beatEnv(tMs){ const phase=(tMs % BEAT_MS)/BEAT_MS; return Math.pow(1-phase, 2.2); }
+/* ---------- hero background video: honor reduced-motion ---------- */
+(function(){
+  const v=document.querySelector('.hero-video'); if(!v) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); v.style.display='none'; }
+})();
+
 window.THE44 = { CONFIG, EVENTS, FOOD, IC, mapUrl, mapApple, mapGoogle, fmtDate, splitTitle, beatEnv, BEAT_MS };
