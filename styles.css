@@ -34,6 +34,8 @@
   --toast-deep:#c93c00;
   --toast-glow:rgba(255,76,0,.45);
   --uber:#06c167;
+  --doordash:#eb1700;
+  --grubhub:#ff8000;
   --uber-deep:#04241a;
   --uber-ink:#04241a;
   --uber-glow:rgba(6,193,103,.45);
@@ -473,13 +475,21 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 .dd-row .dd-dot{width:9px;height:9px;border-radius:50%;background:var(--crimson-bright);flex-shrink:0}
 .dd-row.toast .dd-dot{background:var(--toast)}
 .dd-row.uber .dd-dot{background:var(--uber)}
+.dd-row.doordash .dd-dot{background:var(--doordash)}
+.dd-row.grubhub .dd-dot{background:var(--grubhub)}
 .dd-row.toast:hover{color:#fff;background:rgba(255,76,0,.14)}
 .dd-row.uber:hover{color:#fff;background:rgba(6,193,103,.14)}
+.dd-row.doordash:hover{color:#fff;background:rgba(235,23,0,.14)}
+.dd-row.grubhub:hover{color:#fff;background:rgba(255,128,0,.14)}
 
 /* ---------- platform buttons (Toast / Uber Eats) ---------- */
 .btn-toast{background:transparent;color:#fff;border:1.5px solid var(--toast)}
 .btn-toast:hover{background:var(--toast);color:#fff;transform:translateY(-2px);
   box-shadow:0 14px 40px -10px var(--toast-glow)}
+.btn-doordash{background:transparent;color:#fff;border:1.5px solid var(--doordash)}
+.btn-doordash:hover{background:var(--doordash);color:#fff;transform:translateY(-2px)}
+.btn-grubhub{background:transparent;color:#fff;border:1.5px solid var(--grubhub)}
+.btn-grubhub:hover{background:var(--grubhub);color:#141414;transform:translateY(-2px)}
 .btn-uber{background:transparent;color:#fff;border:1.5px solid var(--uber)}
 .btn-uber:hover{background:var(--uber);color:var(--uber-ink);transform:translateY(-2px);
   box-shadow:0 14px 40px -10px var(--uber-glow)}
@@ -517,6 +527,12 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 .plat-card .btn-toast:hover{background:var(--toast-deep);color:#fff;transform:translateY(-2px)}
 .plat-card .btn-uber{background:var(--uber);color:var(--uber-ink);border-color:var(--uber)}
 .plat-card .btn-uber:hover{background:#05a857;color:var(--uber-ink);transform:translateY(-2px)}
+.plat-card .btn-doordash{background:var(--doordash);color:#fff;border-color:var(--doordash)}
+.plat-card .btn-doordash:hover{background:#c91400;transform:translateY(-2px)}
+.plat-card .btn-grubhub{background:var(--grubhub);color:#141414;border-color:var(--grubhub)}
+.plat-card .btn-grubhub:hover{background:#e07000;color:#141414;transform:translateY(-2px)}
+.plat-card .btn-block+.btn-block{margin-top:10px}
+.powered-by .pb-trio{font-family:'Oswald';font-size:.82rem;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
 @media(max-width:760px){.order-duo{grid-template-columns:1fr}}
 
 /* vinyl section inner + dot-field content layering */

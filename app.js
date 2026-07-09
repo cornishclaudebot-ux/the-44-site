@@ -4,8 +4,10 @@
 const CONFIG = {
   // --- ORDERING (replace with real store URLs) ---
   toast: "https://order.toasttab.com/online/the44live",   // REAL Toast online ordering
-  uber:  "https://www.ubereats.com/store/the-44",          // TODO real Uber Eats store URL
-  uberVerified: false,   // flip to true once the real store URL above is confirmed; until then Uber shows "coming soon"
+  uber:  "https://www.ubereats.com/store/the-44-live/F4XjRLwRQ2CYOc8Xx2P3iA", // REAL (verified live 2026-07-09)
+  uberVerified: true,
+  doordash: "https://www.doordash.com/store/the-44-live-glendale-glendale-46709040/111688956/", // REAL (verified live 2026-07-09)
+  grubhub:  "https://www.grubhub.com/restaurant/the-44-live-4494-w-peoria-ave-glendale/15099488", // REAL (verified live 2026-07-09)
   // --- TICKETS (REAL) ---
   posh:  "https://posh.vip/g/the44",
   // --- CONTACT (REAL) ---
@@ -138,14 +140,18 @@ function buildNav(){
     {h:'events.html', t:'Live Music'},
     {t:'Order', children:[
       {t:'Pickup on Toast', cfg:'toast', cls:'toast'},
-      {t:'Late-Night Delivery on Uber Eats', cfg:'uber', cls:'uber'},
+      {t:'Delivery on Uber Eats', cfg:'uber', cls:'uber'},
+      {t:'Delivery on DoorDash', cfg:'doordash', cls:'doordash'},
+      {t:'Delivery on Grubhub', cfg:'grubhub', cls:'grubhub'},
       {t:'See the Menu', h:'menu.html'}
     ]},
     {t:'Menu', children:[
       {t:'Full Menu', h:'menu.html'},
       {t:'Order Food', h:`${home}#order`},
       {t:'Pickup on Toast', cfg:'toast', cls:'toast'},
-      {t:'Delivery on Uber Eats', cfg:'uber', cls:'uber'}
+      {t:'Delivery on Uber Eats', cfg:'uber', cls:'uber'},
+      {t:'Delivery on DoorDash', cfg:'doordash', cls:'doordash'},
+      {t:'Delivery on Grubhub', cfg:'grubhub', cls:'grubhub'}
     ]},
     {h:'book.html', t:'Book an Event'}
   ];
@@ -245,6 +251,8 @@ function buildFooter(){
       <div class="foot-col"><h5>Order &amp; Tickets</h5>
         <a href="${CONFIG.toast}" target="_blank" rel="noopener">Pickup on Toast</a>
         <a href="${CONFIG.uber}" target="_blank" rel="noopener">Delivery on Uber Eats</a>
+        <a href="${CONFIG.doordash}" target="_blank" rel="noopener">Delivery on DoorDash</a>
+        <a href="${CONFIG.grubhub}" target="_blank" rel="noopener">Delivery on Grubhub</a>
         <a href="${CONFIG.posh}" target="_blank" rel="noopener">Event Tickets</a>
       </div>
       <div class="foot-col"><h5>Visit</h5>
@@ -321,7 +329,7 @@ document.querySelectorAll('[data-cfg]').forEach(el=>{
     el.addEventListener('click', ev=>ev.preventDefault());
     return;
   }
-  const map = {toast:CONFIG.toast,uber:CONFIG.uber,posh:CONFIG.posh,ig:CONFIG.ig,fb:CONFIG.fb,tt:CONFIG.tt,
+  const map = {toast:CONFIG.toast,uber:CONFIG.uber,doordash:CONFIG.doordash,grubhub:CONFIG.grubhub,posh:CONFIG.posh,ig:CONFIG.ig,fb:CONFIG.fb,tt:CONFIG.tt,
                map:mapGoogle,mapgoogle:mapGoogle,mapapple:mapApple};
   if(k in map) el.href = map[k];
   else if(k==='tel'){ el.href="tel:"+CONFIG.phoneRaw; if(!el.textContent.trim())el.textContent=CONFIG.phone; }
