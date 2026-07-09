@@ -501,25 +501,39 @@ function eventRow(ev){
     <div class="eticket"><a href="${ev.url || CONFIG.posh}" target="_blank" rel="noopener" class="btn btn-led btn-sm" data-vibe="you will always feel good if your intentions are good"><img class="led-logo" src="assets/logo.png" alt="" width="18" height="18">Get Tickets</a></div>
   </div>`;
 }
-// full calendar (events page)
-(function(){
-  const host=document.getElementById('events-list'); if(!host) return;
+// full calendar (events page) + home teaser — re-runs when fresh Posh data lands
+function renderEventSections(){
   const today=new Date(); today.setHours(0,0,0,0);
   const upcoming=EVENTS.filter(e=>new Date(e.date+'T23:59:59')>=today);
-  let html=''; let curMonth='';
-  upcoming.forEach(ev=>{
-    const mk=fmtDate(ev.date).monthKey;
-    if(mk!==curMonth){curMonth=mk; html+=`<div class="month-label reveal">${mk}</div>`;}
-    html+=eventRow(ev);
-  });
-  host.innerHTML=html||'<p class="sec-sub">New shows dropping soon. Check back.</p>';
-})();
-// home teaser (next few)
+  const list=document.getElementById('events-list');
+  if(list){
+    let html=''; let curMonth='';
+    upcoming.forEach(ev=>{
+      const mk=fmtDate(ev.date).monthKey;
+      if(mk!==curMonth){curMonth=mk; html+=`<div class="month-label reveal">${mk}</div>`;}
+      html+=eventRow(ev);
+    });
+    list.innerHTML=html||'<p class="sec-sub">New shows dropping soon. Check back.</p>';
+  }
+  const teaser=document.getElementById('events-teaser');
+  if(teaser) teaser.innerHTML=upcoming.slice(0,4).map(eventRow).join('');
+  // on the initial call the reveal observer doesn't exist yet (nodes get observed
+  // by the global observeReveals() at the end of this file); on async re-renders it does
+  try{ observeReveals(); }catch(e){}
+}
+renderEventSections();
+// live data: events.json is refreshed daily from Posh by a GitHub Action.
+// Mutate EVENTS in place — fx-tonight.js holds a reference to this same array
+// and re-renders every minute, so it picks up the fresh list on its own.
 (function(){
-  const host=document.getElementById('events-teaser'); if(!host) return;
-  const today=new Date(); today.setHours(0,0,0,0);
-  const next=EVENTS.filter(e=>new Date(e.date+'T23:59:59')>=today).slice(0,4);
-  host.innerHTML=next.map(eventRow).join('');
+  if(typeof fetch!=='function') return;
+  fetch('events.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
+    if(!j || !Array.isArray(j.events) || !j.events.length) return;
+    const fresh=j.events.filter(e=>e && e.date && e.title);
+    if(!fresh.length) return;
+    EVENTS.length=0; fresh.forEach(e=>EVENTS.push(e));
+    renderEventSections();
+  }).catch(()=>{});
 })();
 
 /* ---------- FOOD card-deck portal (spread on scroll) ---------- */
