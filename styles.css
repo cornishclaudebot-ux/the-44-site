@@ -256,7 +256,11 @@ section{position:relative}
 .order-visual .sub{color:var(--muted);font-size:.85rem;margin-top:14px}
 
 /* ---------- FOOD card-deck portal ---------- */
-#deck-intro{background:linear-gradient(180deg,var(--ink),#0c0809)}
+#deck-intro{background:linear-gradient(180deg,var(--ink),#0c0809);min-height:100svh;display:flex;align-items:center;justify-content:center;padding-top:90px}
+#deck-intro .sec-head{margin-bottom:0}
+#deck-intro .sec-title{font-size:clamp(2.8rem,8vw,5.6rem)}
+#deck-intro .sec-sub{font-size:clamp(1.1rem,2.1vw,1.45rem);max-width:720px}
+#deck-intro .eyebrow{font-size:.9rem;letter-spacing:4px}
 .deck-stage{position:relative;height:520vh;background:#0c0809}
 .deck-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .deck-head{position:absolute;top:2.5vh;left:50%;transform:translateX(-50%);text-align:center;z-index:600;width:90%;pointer-events:none}
@@ -733,6 +737,7 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 @media(max-width:560px){
   .wrap{padding:70px 20px}
   .page-top{padding-top:120px}
+  #deck-intro{min-height:0;padding:120px 0 40px}
   .field-row{grid-template-columns:1fr}
   .hero-actions{flex-direction:column;width:100%}
   .hero-actions .btn{width:100%}
