@@ -35,7 +35,9 @@
   --toast-glow:rgba(255,76,0,.45);
   --uber:#06c167;
   --doordash:#eb1700;
+  --doordash-glow:rgba(235,23,0,.45);
   --grubhub:#ff8000;
+  --grubhub-glow:rgba(255,128,0,.45);
   --uber-deep:#04241a;
   --uber-ink:#04241a;
   --uber-glow:rgba(6,193,103,.45);
@@ -501,21 +503,30 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 #panel-delivery .order-card:hover::after{background:radial-gradient(circle,rgba(6,193,103,.25),transparent 70%)}
 
 /* ---------- order duo (Toast + Uber Eats, both shown, official logos) ---------- */
-.order-duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto;text-align:left}
+.order-duo{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1280px;margin:0 auto;text-align:left}
+@media(max-width:1150px){.order-duo{grid-template-columns:1fr 1fr;max-width:980px}}
 .plat-card{position:relative;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:14px;padding:30px 30px 32px;overflow:hidden;transition:.4s var(--ease);display:flex;flex-direction:column}
 .plat-card::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;opacity:.55;transition:.4s;pointer-events:none}
 .plat-card.toast{border-top:3px solid var(--toast)}
 .plat-card.uber{border-top:3px solid var(--uber)}
+.plat-card.doordash{border-top:3px solid var(--doordash)}
+.plat-card.grubhub{border-top:3px solid var(--grubhub)}
 .plat-card.toast::after{background:radial-gradient(circle,var(--toast-glow),transparent 70%)}
 .plat-card.uber::after{background:radial-gradient(circle,var(--uber-glow),transparent 70%)}
+.plat-card.doordash::after{background:radial-gradient(circle,var(--doordash-glow),transparent 70%)}
+.plat-card.grubhub::after{background:radial-gradient(circle,var(--grubhub-glow),transparent 70%)}
 .plat-card:hover{transform:translateY(-4px)}
 .plat-card.toast:hover{border-color:rgba(255,76,0,.55);box-shadow:0 24px 50px -24px var(--toast-glow)}
 .plat-card.uber:hover{border-color:rgba(6,193,103,.55);box-shadow:0 24px 50px -24px var(--uber-glow)}
+.plat-card.doordash:hover{border-color:rgba(235,23,0,.55);box-shadow:0 24px 50px -24px var(--doordash-glow)}
+.plat-card.grubhub:hover{border-color:rgba(255,128,0,.55);box-shadow:0 24px 50px -24px var(--grubhub-glow)}
 .powered-by{display:flex;align-items:center;gap:9px;margin-bottom:16px;position:relative;z-index:1}
 .powered-by .pb-label{font-family:'Oswald';font-size:.64rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2)}
 .powered-by .pb-logo{height:24px;width:auto;display:inline-block;border-radius:5px}
 .powered-by .pb-uber{height:17px;border-radius:0}
 .powered-by .pb-name{font-family:'Righteous';font-size:1.1rem;color:var(--toast);line-height:1}
+.powered-by .pb-dd{color:var(--doordash)}
+.powered-by .pb-gh{color:var(--grubhub)}
 .plat-card h3{font-size:1.55rem;color:#fff;margin-bottom:11px;position:relative;z-index:1}
 .plat-card>p{color:var(--muted);font-weight:300;margin-bottom:20px;position:relative;z-index:1}
 .plat-feats{list-style:none;margin-bottom:24px;position:relative;z-index:1;flex:1}
@@ -523,6 +534,9 @@ footer.site{background:#000;border-top:1px solid var(--line);padding:60px 28px 3
 .plat-feats li svg{width:17px;height:17px;flex-shrink:0}
 .plat-card.toast .plat-feats li svg{fill:var(--toast)}
 .plat-card.uber .plat-feats li svg{fill:var(--uber)}
+.plat-card.doordash .plat-feats li svg{fill:var(--doordash)}
+.plat-card.grubhub .plat-feats li svg{fill:var(--grubhub)}
+.plat-card .btn-block{margin-top:auto}
 .plat-card .btn-toast{background:var(--toast);color:#fff;border-color:var(--toast)}
 .plat-card .btn-toast:hover{background:var(--toast-deep);color:#fff;transform:translateY(-2px)}
 .plat-card .btn-uber{background:var(--uber);color:var(--uber-ink);border-color:var(--uber)}

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 <div class="grain"></div>
@@ -89,7 +89,7 @@
     <div class="sec-head center reveal">
       <span class="eyebrow">Rockin' Food &amp; Cold Drinks</span>
       <h2 class="sec-title">Order in <em>Two Taps</em></h2>
-      <p class="sec-sub">Skip the line or stay on the couch. Order ahead for pickup, or get it delivered late-night. The kitchen rocks til close.</p>
+      <p class="sec-sub">Skip the line or stay on the couch. Pickup on Toast, delivery on Uber Eats, DoorDash or Grubhub. The kitchen rocks til close.</p>
     </div>
     <div class="order-duo">
       <!-- TOAST -->
@@ -106,16 +106,35 @@
       </article>
       <!-- UBER EATS -->
       <article class="plat-card uber reveal d1">
-        <div class="powered-by"><span class="pb-label">Delivered by</span><span class="pb-name pb-trio">Uber Eats · DoorDash · Grubhub</span></div>
+        <div class="powered-by"><span class="pb-label">Delivered by</span><img class="pb-logo pb-uber" src="assets/brand/ubereats.svg" alt="Uber Eats"></div>
         <h3>Late-Night Delivery</h3>
-        <p>Craving wings at midnight? We deliver the full menu to your door on all three apps, so use whichever one you already love.</p>
+        <p>Craving wings at midnight? The full menu, tracked to your door in the Uber Eats app.</p>
         <ul class="plat-feats">
           <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Delivered hot to your door</li>
-          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Late-night menu after the kitchen rush</li>
           <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Track your order in real time</li>
         </ul>
         <a href="#" data-cfg="uber" target="_blank" rel="noopener" class="btn btn-uber btn-block">Order on Uber Eats</a>
+      </article>
+      <!-- DOORDASH -->
+      <article class="plat-card doordash reveal d2">
+        <div class="powered-by"><span class="pb-label">Delivered by</span><span class="pb-name pb-dd">DoorDash</span></div>
+        <h3>Dashed To Your Door</h3>
+        <p>The whole 44 kitchen on DoorDash, from the Drunken Nachos to the sliders.</p>
+        <ul class="plat-feats">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Late-night menu after the kitchen rush</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Delivery or pickup, your call</li>
+        </ul>
         <a href="#" data-cfg="doordash" target="_blank" rel="noopener" class="btn btn-doordash btn-block">Order on DoorDash</a>
+      </article>
+      <!-- GRUBHUB -->
+      <article class="plat-card grubhub reveal d3">
+        <div class="powered-by"><span class="pb-label">Delivered by</span><span class="pb-name pb-gh">Grubhub</span></div>
+        <h3>Grub, Delivered</h3>
+        <p>Prefer Grubhub? We're on there too. Wings, flatbreads, burgers, all of it.</p>
+        <ul class="plat-feats">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Full menu, straight from our kitchen</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Delivery or pickup, your call</li>
+        </ul>
         <a href="#" data-cfg="grubhub" target="_blank" rel="noopener" class="btn btn-grubhub btn-block">Order on Grubhub</a>
       </article>
     </div>
@@ -206,7 +225,7 @@
 </main>
 
 <div id="footer-mount"></div>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 <script src="fx-dotfield.js"></script>
 <script src="fx-vinyl.js"></script>
 <script src="fx-tonight.js"></script>
