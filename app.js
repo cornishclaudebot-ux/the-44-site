@@ -26,7 +26,7 @@ const CONFIG = {
     default:   "book@the44.live"          // REAL catch-all
   },
   // --- SOCIALS (REAL) ---
-  ig: "https://instagram.com/the44sportsgrillandnightlife",
+  ig: "https://instagram.com/the44livemusicbar",
   fb: "https://facebook.com/The44AZ",
   tt: "https://tiktok.com/@the44livemusicbar",
   // --- HOURS (24h; close 26 = 2AM next day) ---
