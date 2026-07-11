@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-09T01:07:13.303Z",
+ "updated": "2026-07-11T15:15:17.122Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -151,6 +151,12 @@
    "time": "8:00 PM",
    "title": "The Zeppelin IV",
    "url": "https://posh.vip/e/the-zeppelin-iv"
+  },
+  {
+   "date": "2026-08-20",
+   "time": "7:00 PM",
+   "title": "Angry Samoans",
+   "url": "https://posh.vip/e/angry-samoans"
   },
   {
    "date": "2026-08-21",
