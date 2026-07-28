@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-21T15:53:05.345Z",
+ "updated": "2026-07-28T16:15:23.929Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -223,6 +223,12 @@
    "time": "8:00 PM",
    "title": "Octane",
    "url": "https://posh.vip/e/octane-1"
+  },
+  {
+   "date": "2026-09-19",
+   "time": "6:30 PM",
+   "title": "Eric J McCoy Memorial Show feat. Pelvic Meatloaf, Bleed The Fifth, Perennial Fallout, Feed the Lion, 73 Libra, X-5 Unit, Vindicated",
+   "url": "https://posh.vip/e/eric-j-mccoy-memorial-showfeat-pelvic-meatloaf-bleed-the-fifth-perennial-fallout-feed-the-lion-73-zebra-x5-unit-vindicated"
   },
   {
    "date": "2026-09-26",
