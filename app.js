@@ -14,16 +14,17 @@ const CONFIG = {
   phone: "(623) 842-1053",
   phoneRaw: "+16238421053",
   address: "4494 W Peoria Ave, Glendale, AZ 85302",
-  // --- EVENT EMAILS (one inbox per type — confirm/create) ---
+  // --- EVENT BOOKING (REAL) ---
+  bookingContact: "Benjamin Millo",       // handles all event booking
   emails: {
-    // All route to the confirmed catch-all until per-type inboxes are provisioned
-    // and send-tested. Routing still works because the event type is written into
-    // the subject line. Restore per-type addresses only after each is confirmed.
-    corporate: "book@the44.live",
-    private:   "book@the44.live",
-    talent:    "book@the44.live",
-    specialty: "book@the44.live",
-    default:   "book@the44.live"          // REAL catch-all
+    // Every event type routes to Benjamin Millo at Booking@the44.live.
+    // Routing still works because the event type is written into the subject
+    // line. Restore per-type addresses only if separate inboxes are confirmed.
+    corporate: "Booking@the44.live",
+    private:   "Booking@the44.live",
+    talent:    "Booking@the44.live",
+    specialty: "Booking@the44.live",
+    default:   "Booking@the44.live"       // REAL
   },
   // --- SOCIALS (REAL) ---
   ig: "https://instagram.com/the44livemusicbar",
@@ -279,7 +280,7 @@ function buildModal(){
       <div class="modal-top">
         <span class="eyebrow">Event Request</span>
         <h3 id="modalTitle">Book Your Event</h3>
-        <div class="to">Goes straight to <b id="modalEmail">book@the44.live</b></div>
+        <div class="to">Goes straight to ${CONFIG.bookingContact} at <b id="modalEmail">${CONFIG.emails.default}</b></div>
       </div>
       <div class="modal-body">
         <form id="bookForm">
@@ -299,7 +300,7 @@ function buildModal(){
         <div class="modal-success" id="modalSuccess">
           <div class="check">${IC.check}</div>
           <h4>Almost there, hit send</h4>
-          <p>We tried to open a pre-filled email to <span class="em" id="successEmail">book@the44.live</span>. Just press send in your mail app.</p>
+          <p>We tried to open a pre-filled email to <span class="em" id="successEmail">${CONFIG.emails.default}</span>. Just press send in your mail app.</p>
           <p class="success-fallback">Nothing opened? Email <a id="successMail" href="mailto:${CONFIG.emails.default}">${CONFIG.emails.default}</a> or call <a href="tel:${CONFIG.phoneRaw}">${CONFIG.phone}</a> and we'll take it from there.</p>
         </div>
       </div>
@@ -457,8 +458,8 @@ document.querySelectorAll('.eq').forEach(eq=>{
     e.preventDefault();
     const g=id=>document.getElementById(id).value;
     const type=evtTypeInput.value;
-    const subject=`The 44 — ${type} Inquiry from ${g('fName')}`;
-    const body=`Event type: ${type}\nName: ${g('fName')}\nEmail: ${g('fEmail')}\nPhone: ${g('fPhone')}\nPreferred date: ${g('fDate')||"Flexible"}\nHeadcount: ${g('fGuests')||"TBD"}\n\nDetails:\n${g('fMsg')}\n\n— Sent from the44.live`;
+    const subject=`The 44 ${type} Inquiry from ${g('fName')}`;
+    const body=`Event type: ${type}\nName: ${g('fName')}\nEmail: ${g('fEmail')}\nPhone: ${g('fPhone')}\nPreferred date: ${g('fDate')||"Flexible"}\nHeadcount: ${g('fGuests')||"TBD"}\n\nDetails:\n${g('fMsg')}\n\nSent from the44.live`;
     window.location.href=`mailto:${activeEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     document.getElementById('bookForm').style.display='none';
     document.getElementById('successEmail').textContent=activeEmail;
