@@ -17,14 +17,26 @@
 <link rel="stylesheet" href="styles.css?v=5">
 <style>
 .cn-block{max-width:820px}
-.cn-nights{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
-@media(max-width:820px){.cn-nights{grid-template-columns:1fr}}
-.cn-night{border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:28px;background:rgba(255,255,255,.02);display:flex;flex-direction:column}
-.cn-night .cn-day{font-family:'Oswald',sans-serif;color:#E21B2C;font-size:.82rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:10px}
-.cn-night h3{font-family:'Righteous',cursive;font-size:1.55rem;color:#fff;margin:0 0 12px;line-height:1.15}
-.cn-night .cn-meta{color:rgba(255,255,255,.62);line-height:1.6;margin:0 0 6px;font-size:.95rem}
-.cn-night .cn-when{color:#fff;font-weight:600;min-height:1.5em;margin:0 0 14px;font-size:.95rem}
-.cn-night .btn{margin-top:auto}
+.cn-here{border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:28px;background:rgba(255,255,255,.02);margin-top:44px}
+.cn-here .cn-day{font-family:'Oswald',sans-serif;color:#E21B2C;font-size:.82rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:10px}
+.cn-here h3{font-family:'Righteous',cursive;font-size:1.55rem;color:#fff;margin:0 0 18px;line-height:1.15}
+.cn-list{display:flex;flex-wrap:wrap;gap:22px;margin:0 0 24px}
+.cn-when{color:rgba(255,255,255,.72);font-size:.95rem;margin:0;line-height:1.6}
+/* Flyer card. The real Posh flyer art is the hero and is NOT covered: these
+   flyers carry their own typography (date, price, age policy), so overlaying
+   our text on them collides with the art and reads as slop. Details sit under
+   the image instead. Whole card is the tap target. */
+.cn-ev{position:relative;display:flex;flex-direction:column;
+  width:300px;max-width:100%;border-radius:20px;overflow:hidden;text-decoration:none;
+  border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);
+  transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s}
+.cn-ev:hover{transform:translateY(-6px);border-color:rgba(226,27,44,.45)}
+.cn-ev .cn-shot{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;background:#0a0708}
+.cn-ev .cn-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cn-ev .cn-info{display:block;padding:18px}
+.cn-ev .cn-date{display:block;font-family:'Oswald',sans-serif;color:#E21B2C;font-size:.8rem;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:6px}
+.cn-ev .cn-title{display:block;color:#fff;font-weight:600;line-height:1.3;margin-bottom:14px}
+.cn-ev .cn-go{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:#E21B2C;border-radius:9px;color:#fff;font-family:'Oswald',sans-serif;font-size:.8rem;letter-spacing:1.2px;text-transform:uppercase}
 .cn-hand{border:1px solid rgba(226,27,44,.32);border-radius:20px;padding:30px;margin-top:44px;background:linear-gradient(180deg,rgba(226,27,44,.07),rgba(255,255,255,.01))}
 .cn-hand h3{font-family:'Righteous',cursive;font-size:1.5rem;color:#fff;margin:8px 0 12px}
 .cn-hand p{color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 20px;max-width:60ch}
@@ -38,8 +50,8 @@
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What night is college night at The 44?","acceptedAnswer":{"@type":"Answer","text":"Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM. Their Thursday night runs at The Rack in Old Town Scottsdale."}},
 {"@type":"Question","name":"Who runs the college nights at The 44?","acceptedAnswer":{"@type":"Answer","text":"DartyForLife, a Phoenix event company. The 44 in Glendale is the home base for their Darty Bars nights on Tuesdays. Full schedule and tickets are at dartyforlife.com."}},
-{"@type":"Question","name":"Is there a college night near ASU?","acceptedAnswer":{"@type":"Answer","text":"Yes. DartyForLife runs a Thursday night at The Rack, 3636 N Scottsdale Rd in Old Town Scottsdale, Ages 21 and over. Details and tickets are at dartyforlife.com."}},
-{"@type":"Question","name":"How do I book a college night?","acceptedAnswer":{"@type":"Answer","text":"DartyForLife books and runs the college nights, so start at dartyforlife.com. For private parties, corporate buyouts, weddings and live music booking at The 44 itself, email Benjamin Millo at Booking@the44.live or call (623) 842-1053."}}
+{"@type":"Question","name":"Is The 44 18 and over on certain nights of the week?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 44 is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and from 9:00PM to 2:00AM on Thursdays, plus occasional 18 and over Mondays with Thank You For Dancing or Electric Dance, a line dancing company."}},
+{"@type":"Question","name":"Is The 44 a college bar for GCU?","acceptedAnswer":{"@type":"Answer","text":"This is the number one spot for GCU students. This is the GCU college bar."}}
 ]}
 ]}
 </script>
@@ -64,28 +76,18 @@
       </div>
     </div>
 
-    <div class="cn-nights reveal">
-      <article class="cn-night">
-        <div class="cn-day">Tuesdays · Glendale</div>
-        <h3>Darty Bars at The 44</h3>
-        <p class="cn-meta">4494 W Peoria Ave, Glendale, AZ 85302. Doors at 9PM, kitchen and bar run to 2AM.</p>
-        <p class="cn-when" id="cnTue"></p>
-        <a class="btn btn-primary" id="cnTueLink" href="https://dartyforlife.com/bars.html" target="_blank" rel="noopener">See Darty Bars Nights</a>
-      </article>
-      <article class="cn-night">
-        <div class="cn-day">Thursdays · Old Town Scottsdale</div>
-        <h3>DartyForLife Tempe at The Rack</h3>
-        <p class="cn-meta">The Rack, 3636 N Scottsdale Rd, Scottsdale, AZ 85251. Ages 21 &amp; over. The college side of Darty, for all Sun Devils.</p>
-        <p class="cn-when" id="cnThu"></p>
-        <a class="btn btn-primary" id="cnThuLink" href="https://dartyforlife.com/tempe.html" target="_blank" rel="noopener">See Tempe Nights</a>
-      </article>
+    <div class="cn-here reveal">
+      <div class="cn-day">Here at The 44 · 4494 W Peoria Ave</div>
+      <h3>DartyForLife Nights At The 44</h3>
+      <div id="cn44List" class="cn-list"><p class="cn-when">Every Tuesday, doors at 9PM.</p></div>
+      <a class="btn btn-primary" href="https://dartyforlife.com/bars.html" target="_blank" rel="noopener">See All Darty Bars Nights</a>
     </div>
 
     <div class="cn-hand reveal">
-      <span class="eyebrow">Booking A College Night</span>
-      <h3>DartyForLife Runs These</h3>
-      <p>If you are looking to book or partner on a college night, that is DartyForLife, not our box office. They handle the booking, the promo and the production for both rooms. Everything else at The 44, private parties, corporate buyouts, weddings and live music booking, still comes straight to us.</p>
-      <a class="btn btn-primary" href="https://dartyforlife.com/" target="_blank" rel="noopener">Go To DartyForLife</a>
+      <span class="eyebrow">College Nights In Phoenix</span>
+      <h3>DartyForLife Runs The College Nights</h3>
+      <p>Looking for a college night, or looking to put one on? Talk to DartyForLife. They are one of the biggest college promotion groups in the Phoenix Valley, running nights across Tempe, Scottsdale, Glendale, Avondale and Goodyear. If you want to know where the college nights are in Phoenix, follow them.</p>
+      <a class="btn btn-primary" href="https://instagram.com/dartyforlife" target="_blank" rel="noopener">Follow @dartyforlife</a>
     </div>
 
     <div class="cn-faq reveal" style="margin-top:56px">
@@ -95,22 +97,10 @@
       <p>Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM. Their Thursday night runs at The Rack in Old Town Scottsdale.</p>
       <h3>Who runs the college nights at The 44?</h3>
       <p>DartyForLife, a Phoenix event company. The 44 in Glendale is the home base for their Darty Bars nights on Tuesdays. Full schedule and tickets are at dartyforlife.com.</p>
-      <h3>Is there a college night near ASU?</h3>
-      <p>Yes. DartyForLife runs a Thursday night at The Rack, 3636 N Scottsdale Rd in Old Town Scottsdale, Ages 21 &amp; over. Details and tickets are at dartyforlife.com.</p>
-      <h3>How do I book a college night?</h3>
-      <p>DartyForLife books and runs the college nights, so start at dartyforlife.com. For private parties, corporate buyouts, weddings and live music booking at The 44 itself, email Benjamin Millo at <a href="#" data-cfg="mailDefault">Booking@the44.live</a> or call <a href="#" data-cfg="tel">(623) 842-1053</a>.</p>
-    </div>
-
-    <div class="follow-card reveal" style="margin-top:60px">
-      <div>
-        <span class="eyebrow">Don't Miss A Night</span>
-        <h2>Follow <em>Both</em></h2>
-        <p>The 44 posts the live music. DartyForLife posts the college nights. Follow both so you never miss one.</p>
-      </div>
-      <div class="follow-btns">
-        <a href="https://instagram.com/the44livemusicbar" target="_blank" rel="noopener" class="btn btn-primary">Follow @the44livemusicbar</a>
-        <a href="https://instagram.com/dartyforlife" target="_blank" rel="noopener" class="btn btn-ghost">Follow @dartyforlife</a>
-      </div>
+      <h3>Is The 44 18 &amp; over on certain nights of the week?</h3>
+      <p>Yes. The 44 is Ages 18 &amp; over from 9:00PM to 2:00AM on Tuesdays and from 9:00PM to 2:00AM on Thursdays, plus occasional 18 &amp; over Mondays with Thank You For Dancing or Electric Dance, a line dancing company.</p>
+      <h3>Is The 44 a college bar for GCU?</h3>
+      <p>This is the number one spot for GCU students. This is the GCU college bar.</p>
     </div>
   </div>
 </section>
@@ -120,13 +110,18 @@
 <script src="app.js?v=5"></script>
 <script src="fx-dotfield.js"></script>
 <script>
-/* Live next-date for each college night, read from DartyForLife's own Posh-fed
-   feed (GH Pages sends Access-Control-Allow-Origin:*). Never writes a date it
-   cannot verify: on any failure the cadence copy below stands on its own. */
+/* Upcoming DartyForLife nights AT THE 44 ONLY, read live from DartyForLife's
+   own Posh-fed feed (GH Pages sends Access-Control-Allow-Origin:*).
+   The venue gate is the whole point: DartyForLife also runs rooms we are not,
+   Rack in Scottsdale, Stratus, Mother Tuckers, and none of those belong on our
+   calendar. Posh has spelled this venue "The 44 Sports Grill & Nightlife",
+   "44 Sportsbar" and "The 44 Live Music Bar", so match the number, not a name.
+   On a failed or malformed fetch the cadence copy already in the markup stands,
+   so a bad day upstream can never invent or blank out a date. */
 (function(){
-  var tue=document.getElementById('cnTue'), thu=document.getElementById('cnThu');
-  if(!tue||!thu) return;
-  tue.textContent='Every Tuesday'; thu.textContent='Every Thursday';
+  var host=document.getElementById('cn44List');
+  if(!host) return;
+  var AT_44=/\b44\b/;
   function fmt(d){
     var p=String(d).slice(0,10).split('-');
     if(p.length!==3) return null;
@@ -134,28 +129,46 @@
     if(isNaN(dt)) return null;
     return dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
   }
+  function esc(s){ return String(s).replace(/[<>&"]/g,function(c){
+    return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]; }); }
   fetch('https://dartyforlife.com/events.json',{cache:'no-cache'})
     .then(function(r){ return r.ok?r.json():null; })
     .then(function(j){
       var evs = Array.isArray(j) ? j : (j && j.events);
-      if(!Array.isArray(evs) || !evs.length) return;
+      if(!Array.isArray(evs)) return;              // bad shape, keep the fallback copy
       var today=new Date(); today.setHours(0,0,0,0);
-      function next(match){
-        return evs.filter(function(e){
-          if(!e || !e.date || !match(e)) return false;
-          var p=String(e.date).slice(0,10).split('-');
-          if(p.length!==3) return false;
-          return new Date(+p[0], +p[1]-1, +p[2]) >= today;
-        }).sort(function(a,b){ return a.date < b.date ? -1 : 1; })[0];
+      var mine=evs.filter(function(e){
+        if(!e || !e.date || !AT_44.test(String(e.venue||''))) return false;
+        var p=String(e.date).slice(0,10).split('-');
+        if(p.length!==3) return false;
+        return new Date(+p[0], +p[1]-1, +p[2]) >= today;
+      }).sort(function(a,b){ return a.date < b.date ? -1 : 1; });
+      if(!mine.length){
+        host.innerHTML='<p class="cn-when">Nothing on the calendar here yet. '+
+          'Follow along for the next one.</p>';
+        return;
       }
-      var t=next(function(e){ return e.series==='bar' && /\b44\b/.test(String(e.venue||'')); });
-      var h=next(function(e){ return e.series==='tempe'; });
-      if(t){ var ft=fmt(t.date); if(ft){ tue.textContent='Next: '+ft;
-        if(t.url){ var a=document.getElementById('cnTueLink');
-          a.href='https://posh.vip/e/'+t.url; a.textContent='Get Tickets'; } } }
-      if(h){ var fh=fmt(h.date); if(fh){ thu.textContent='Next: '+fh;
-        if(h.url){ var b=document.getElementById('cnThuLink');
-          b.href='https://posh.vip/e/'+h.url; b.textContent='Get Tickets'; } } }
+      host.innerHTML=mine.map(function(e){
+        var d=fmt(e.date); if(!d) return '';
+        var href=e.url ? 'https://posh.vip/e/'+esc(e.url)
+                       : 'https://dartyforlife.com/bars.html';
+        // Real Posh flyer art. These are multi-MB PNGs, so never block on them:
+        // lazy + async, and the card still reads fine if one never arrives.
+        // width/height reserve the box so the card never shifts while a
+        // multi-MB Posh flyer streams in. Deliberately NOT loading="lazy":
+        // these cards are injected after fetch, and a lazy image inserted that
+        // way does not reliably start loading. The flyer IS this section, so
+        // it loads eagerly and decodes off the main thread.
+        var art=e.flyer ? '<span class="cn-shot"><img class="cn-art" src="'+esc(e.flyer)+
+          '" alt="'+esc(e.title||'Event')+' flyer" width="800" height="1000"'+
+          ' decoding="async"></span>' : '';
+        return '<a class="cn-ev" href="'+href+'" target="_blank" rel="noopener">'+
+          art+'<span class="cn-info">'+
+          '<span class="cn-date">'+esc(d)+(e.time?' · '+esc(e.time):'')+'</span>'+
+          '<span class="cn-title">'+esc(e.title||'')+'</span>'+
+          '<span class="cn-go">'+(e.url?'Tickets':'Details')+'</span>'+
+          '</span></a>';
+      }).join('');
     })
     .catch(function(){});
 })();
