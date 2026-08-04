@@ -20,6 +20,12 @@
 .cn-here{border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:28px;background:rgba(255,255,255,.02);margin-top:44px}
 .cn-here .cn-day{font-family:'Oswald',sans-serif;color:#E21B2C;font-size:.82rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:10px}
 .cn-here h3{font-family:'Righteous',cursive;font-size:1.55rem;color:#fff;margin:0 0 18px;line-height:1.15}
+.cn-nights{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+@media(max-width:820px){.cn-nights{grid-template-columns:1fr}}
+.cn-night{border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:28px;background:rgba(255,255,255,.02)}
+.cn-night .cn-day{font-family:'Oswald',sans-serif;color:#E21B2C;font-size:.82rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:10px}
+.cn-night h3{font-family:'Righteous',cursive;font-size:1.6rem;color:#fff;margin:0 0 14px;line-height:1.15}
+.cn-night p{color:rgba(255,255,255,.72);line-height:1.65;margin:0}
 .cn-list{display:flex;flex-wrap:wrap;gap:22px;margin:0 0 24px}
 .cn-when{color:rgba(255,255,255,.72);font-size:.95rem;margin:0;line-height:1.6}
 /* Flyer card. The real Posh flyer art is the hero and is NOT covered: these
@@ -48,12 +54,14 @@
 {"@context":"https://schema.org","@graph":[
 {"@type":"Event","name":"Darty Bars College Night at The 44","description":"DartyForLife's weekly Tuesday bar night at The 44 in Glendale, Arizona. Doors at 9PM.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","eventSchedule":{"@type":"Schedule","repeatFrequency":"P1W","byDay":"https://schema.org/Tuesday","startTime":"21:00"},"url":"https://the44.live/college-night.html","location":{"@type":"BarOrPub","@id":"https://the44.live/#bar","name":"The 44 Live Music Bar","address":{"@type":"PostalAddress","streetAddress":"4494 W Peoria Ave","addressLocality":"Glendale","addressRegion":"AZ","postalCode":"85302","addressCountry":"US"}},"organizer":{"@type":"Organization","name":"DartyForLife","url":"https://dartyforlife.com/"}},
 {"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What night is college night at The 44?","acceptedAnswer":{"@type":"Answer","text":"Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM. Their Thursday night runs at The Rack in Old Town Scottsdale."}},
+{"@type":"Question","name":"What night is college night at The 44?","acceptedAnswer":{"@type":"Answer","text":"Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM."}},
 {"@type":"Question","name":"Who runs the college nights at The 44?","acceptedAnswer":{"@type":"Answer","text":"DartyForLife, a Phoenix event company. The 44 in Glendale is the home base for their Darty Bars nights on Tuesdays. Full schedule and tickets are at dartyforlife.com."}},
 {"@type":"Question","name":"Is The 44 18 and over on certain nights of the week?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 44 is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and from 9:00PM to 2:00AM on Thursdays, plus occasional 18 and over Mondays with Thank You For Dancing or Electric Dance, a line dancing company."}},
 {"@type":"Question","name":"Is The 44 a college bar for GCU?","acceptedAnswer":{"@type":"Answer","text":"This is the number one spot for GCU students. This is the GCU college bar."}},
 {"@type":"Question","name":"Which college bars are in Phoenix?","acceptedAnswer":{"@type":"Answer","text":"The 44 is a college bar in the Phoenix West Valley, at 4494 W Peoria Ave in Glendale. It is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and Thursdays, with live music and a late-night kitchen."}},
-{"@type":"Question","name":"Is there an 18 and over bar in Glendale, AZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 44 is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and Thursdays, five minutes from Glendale Community College."}}
+{"@type":"Question","name":"Is there an 18 and over bar in Glendale, AZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 44 is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and Thursdays, five minutes from Glendale Community College."}},
+{"@type":"Question","name":"What happens on Tuesdays at The 44?","acceptedAnswer":{"@type":"Answer","text":"$2 beers at midnight, plus live music, DJs, lasers and fog. Ages 18 and over, 9:00PM to 2:00AM."}},
+{"@type":"Question","name":"Is there karaoke in Glendale, AZ?","acceptedAnswer":{"@type":"Answer","text":"Yes. Karaoke runs Thursdays at The 44, 4494 W Peoria Ave in Glendale, 9:00PM to 2:00AM, Ages 18 and over."}}
 ]}
 ]}
 </script>
@@ -68,9 +76,9 @@
 <section class="page-top events-hero">
   <div class="wrap" style="padding-top:0">
     <div class="sec-head reveal">
-      <span class="eyebrow">College Nights · Glendale, AZ</span>
-      <h2 class="sec-title">Tuesdays Here. <em>Thursdays</em> In Old Town.</h2>
-      <p class="sec-sub">Our college nights are run by DartyForLife. Tuesdays land here at The 44 in Glendale, and Thursdays run at The Rack in Old Town Scottsdale. Same crew, two rooms, every week.</p>
+      <span class="eyebrow">College Bar · Glendale, AZ</span>
+      <h2 class="sec-title">The Biggest College Bar In <em>Glendale</em></h2>
+      <p class="sec-sub">The 44 is the place to be. Ages 18 &amp; over on Tuesdays and Thursdays, 9:00PM to 2:00AM, with live music and a room that fills up every single week.</p>
       <div class="hero-chips" style="justify-content:flex-start;margin-top:24px">
         <span class="chip">Ages 18 &amp; Over</span>
         <span class="chip">Tuesdays &amp; Thursdays</span>
@@ -80,6 +88,19 @@
 
     <div class="cn-block reveal" style="margin-top:36px">
       <p class="sec-sub" style="text-align:left">The 44 is Glendale's college bar and the number one spot for GCU students. We run Ages 18 &amp; over from 9:00PM to 2:00AM on Tuesdays and Thursdays, with live music, a late-night kitchen and drink prices built for a college budget. We are five minutes from Glendale Community College and a straight shot up the 17 from downtown Phoenix.</p>
+    </div>
+
+    <div class="cn-nights reveal">
+      <article class="cn-night">
+        <div class="cn-day">Tuesdays · 9PM to 2AM</div>
+        <h3>$2 Beers At Midnight</h3>
+        <p>Live music, DJs, lasers and fog. Everything you want out of a Tuesday night, and $2 beers when the clock hits midnight.</p>
+      </article>
+      <article class="cn-night">
+        <div class="cn-day">Thursdays · 9PM to 2AM</div>
+        <h3>Karaoke Night</h3>
+        <p>Sing your heart out. Grab a ski shot, bring the whole group, and take the mic.</p>
+      </article>
     </div>
 
     <div class="cn-here reveal">
@@ -100,7 +121,7 @@
       <span class="eyebrow">Good To Know</span>
       <h2 class="sec-title" style="font-size:1.8rem;margin:6px 0 18px">Questions</h2>
       <h3>What night is college night at The 44?</h3>
-      <p>Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM. Their Thursday night runs at The Rack in Old Town Scottsdale.</p>
+      <p>Tuesdays. DartyForLife runs the college night at The 44, 4494 W Peoria Ave in Glendale, with doors at 9PM.</p>
       <h3>Who runs the college nights at The 44?</h3>
       <p>DartyForLife, a Phoenix event company. The 44 in Glendale is the home base for their Darty Bars nights on Tuesdays. Full schedule and tickets are at dartyforlife.com.</p>
       <h3>Is The 44 18 &amp; over on certain nights of the week?</h3>
@@ -111,6 +132,10 @@
       <p>The 44 is a college bar in the Phoenix West Valley, at 4494 W Peoria Ave in Glendale. It is Ages 18 &amp; over from 9:00PM to 2:00AM on Tuesdays and Thursdays, with live music and a late-night kitchen.</p>
       <h3>Is there an 18 &amp; over bar in Glendale, AZ?</h3>
       <p>Yes. The 44 is Ages 18 &amp; over from 9:00PM to 2:00AM on Tuesdays and Thursdays, five minutes from Glendale Community College.</p>
+      <h3>What happens on Tuesdays at The 44?</h3>
+      <p>$2 beers at midnight, plus live music, DJs, lasers and fog. Ages 18 &amp; over, 9:00PM to 2:00AM.</p>
+      <h3>Is there karaoke in Glendale, AZ?</h3>
+      <p>Yes. Karaoke runs Thursdays at The 44, 9:00PM to 2:00AM, Ages 18 &amp; over. Grab a ski shot and take the mic.</p>
     </div>
   </div>
 </section>
