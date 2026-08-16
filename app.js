@@ -248,7 +248,7 @@ function buildFooter(){
         </div>
       </div>
       <div class="foot-col"><h5>Explore</h5>
-        <a href="events.html">Live Music</a><a href="college-night.html">College Nights</a><a href="menu.html">Menu</a><a href="book.html">Book an Event</a><a href="${home}#order">Order</a>
+        <a href="events.html">Live Music</a><a href="college-night.html">College Nights</a><a href="18-and-over.html">Age Policy</a><a href="menu.html">Menu</a><a href="book.html">Book an Event</a><a href="${home}#order">Order</a>
       </div>
       <div class="foot-col"><h5>Order &amp; Tickets</h5>
         <a href="${CONFIG.toast}" target="_blank" rel="noopener">Pickup on Toast</a>
