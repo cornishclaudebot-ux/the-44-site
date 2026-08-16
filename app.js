@@ -27,7 +27,7 @@ const CONFIG = {
     default:   "Booking@the44.live"       // REAL
   },
   // --- SOCIALS (REAL) ---
-  ig: "https://instagram.com/the44livemusicbar",
+  ig: "https://instagram.com/the44live",
   fb: "https://facebook.com/The44AZ",
   tt: "https://tiktok.com/@the44livemusicbar",
   // --- HOURS (24h; close 26 = 2AM next day) ---
