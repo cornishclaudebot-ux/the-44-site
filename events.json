@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-28T16:15:23.929Z",
+ "updated": "2026-09-01T07:09:30.449Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -11,7 +11,7 @@
   {
    "date": "2026-05-19",
    "time": "2:45 PM",
-   "title": "PENNY BEERS EVERYDAY",
+   "title": "PENNY BEERS",
    "url": "https://posh.vip/e/penny-beers-everyday"
   },
   {
@@ -141,12 +141,6 @@
    "url": "https://posh.vip/e/one-drop-redemption-the-premiere-bob-marley-experience"
   },
   {
-   "date": "2026-08-08",
-   "time": "8:00 PM",
-   "title": "Missing Persons",
-   "url": "https://posh.vip/e/missing-persons-w-mills-end-24-b4-40"
-  },
-  {
    "date": "2026-08-14",
    "time": "8:00 PM",
    "title": "The Classic Rock & Soul Cover Experience",
@@ -213,6 +207,12 @@
    "url": "https://posh.vip/e/menace-mary"
   },
   {
+   "date": "2026-09-12",
+   "time": "8:00 PM",
+   "title": "Missing Persons W SPECIAL GUESTS 26 B4 40 MILLS END",
+   "url": "https://posh.vip/e/missing-persons-w-mills-end-24-b4-40"
+  },
+  {
    "date": "2026-09-16",
    "time": "7:00 PM",
    "title": "TRAPT The Then til Now Tour w/ Sygnal To Noise, TwoFew, Part Ridge Family",
@@ -237,16 +237,16 @@
    "url": "https://posh.vip/e/azdz"
   },
   {
-   "date": "2026-10-03",
-   "time": "8:00 PM",
-   "title": "Without Fear",
-   "url": "https://posh.vip/e/without-fear"
+   "date": "2026-10-06",
+   "time": "7:00 PM",
+   "title": "Skinlab & Cemetary Legacy",
+   "url": "https://posh.vip/e/skinlab-cemetary-legacy"
   },
   {
    "date": "2026-10-17",
-   "time": "8:00 PM",
-   "title": "Tater & The Tokers",
-   "url": "https://posh.vip/e/tater-the-tokers"
+   "time": "6:30 PM",
+   "title": "NIGHT OF METAL MAYHEM",
+   "url": "https://posh.vip/e/night-of-metal-mayhem"
   },
   {
    "date": "2026-10-24",
@@ -255,15 +255,21 @@
    "url": "https://posh.vip/e/elote-korn-tribute-w-be-quiet-and-drive-deftones-tribute"
   },
   {
+   "date": "2026-10-25",
+   "time": "6:00 PM",
+   "title": "SMILE EMPTY SOUL",
+   "url": "https://posh.vip/e/smile-empty-soul"
+  },
+  {
    "date": "2026-11-12",
    "time": "6:00 PM",
    "title": "Killer Dwarfs w/Lit Up",
    "url": "https://posh.vip/e/killer-dwarfs-wlit-up"
   },
   {
-   "date": "2026-11-20",
+   "date": "2026-11-13",
    "time": "8:00 PM",
-   "title": "Green Jello",
+   "title": "Green Jello w/ Junk Drawer",
    "url": "https://posh.vip/e/green-jello"
   },
   {
