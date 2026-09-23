@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-23T21:11:39.918Z",
+ "updated": "2026-09-23T23:11:44.319Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -238,6 +238,12 @@
   },
   {
    "date": "2026-09-26",
+   "time": "1:00 PM",
+   "title": "AZLive Calling all AZ Artists",
+   "url": "https://posh.vip/e/azlive-calling-all-az-artists"
+  },
+  {
+   "date": "2026-09-26",
    "time": "8:00 PM",
    "title": "Animal Magnetism & The JACK",
    "url": "https://posh.vip/e/azdz"
@@ -259,6 +265,12 @@
    "time": "7:00 PM",
    "title": "Sad Sounds Society: EMO Night -Opening Night feat. DJ Aaron Bliss",
    "url": "https://posh.vip/e/sad-sounds-society-emo-night-opening-night-feat-dj-aaron-bliss"
+  },
+  {
+   "date": "2026-10-10",
+   "time": "8:00 PM",
+   "title": "Menace Mary w/ Miss Conduct",
+   "url": "https://posh.vip/e/menace-mary-w-miss-conduct"
   },
   {
    "date": "2026-10-16",
