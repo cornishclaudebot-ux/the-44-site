@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-24T06:04:59.035Z",
+ "updated": "2026-09-24T17:25:59.019Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -261,12 +261,6 @@
    "url": "https://posh.vip/e/skinlab-cemetary-legacy"
   },
   {
-   "date": "2026-10-07",
-   "time": "7:00 PM",
-   "title": "Sad Sounds Society: EMO Night -Opening Night feat. DJ Aaron Bliss",
-   "url": "https://posh.vip/e/sad-sounds-society-emo-night-opening-night-feat-dj-aaron-bliss"
-  },
-  {
    "date": "2026-10-10",
    "time": "8:00 PM",
    "title": "Menace Mary w/ Miss Conduct",
@@ -277,6 +271,12 @@
    "time": "6:30 PM",
    "title": "NIGHT OF METAL MAYHEM",
    "url": "https://posh.vip/e/night-of-metal-mayhem"
+  },
+  {
+   "date": "2026-10-24",
+   "time": "7:00 PM",
+   "title": "L.A.'s Wasted Youth",
+   "url": "https://posh.vip/e/las-wasted-youth"
   },
   {
    "date": "2026-10-24",
@@ -313,6 +313,12 @@
    "time": "6:00 PM",
    "title": "A Killer's Confession w/Dizasterpiece, Dead Things",
    "url": "https://posh.vip/e/a-killers-confession-wdizasterpiece-dead-things"
+  },
+  {
+   "date": "2026-11-27",
+   "time": "7:00 PM",
+   "title": "Dwarves",
+   "url": "https://posh.vip/e/dwarves"
   }
  ]
 }
