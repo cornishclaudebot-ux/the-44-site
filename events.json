@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T02:20:45.018Z",
+ "updated": "2026-09-25T16:40:50.320Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -271,6 +271,12 @@
    "time": "6:30 PM",
    "title": "NIGHT OF METAL MAYHEM",
    "url": "https://posh.vip/e/night-of-metal-mayhem"
+  },
+  {
+   "date": "2026-10-23",
+   "time": "7:00 PM",
+   "title": "AZ LIVE Concert",
+   "url": "https://posh.vip/e/az-live-concert"
   },
   {
    "date": "2026-10-24",
