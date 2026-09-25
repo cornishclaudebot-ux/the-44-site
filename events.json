@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T16:40:50.320Z",
+ "updated": "2026-09-25T18:00:05.296Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -325,6 +325,12 @@
    "time": "7:00 PM",
    "title": "Dwarves w/ None! & TBA",
    "url": "https://posh.vip/e/dwarves"
+  },
+  {
+   "date": "2027-01-30",
+   "time": "7:00 PM",
+   "title": "Marty Friedman with RevUnion, Tricus & More TBA",
+   "url": "https://posh.vip/e/marty-friedman"
   }
  ]
 }
