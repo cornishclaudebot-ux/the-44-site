@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-17T07:27:30.287Z",
+ "updated": "2026-10-18T04:37:23.882Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -301,6 +301,12 @@
    "time": "7:00 PM",
    "title": "AZ LIVE Concert",
    "url": "https://posh.vip/e/az-live-concert"
+  },
+  {
+   "date": "2026-10-24",
+   "time": "7:00 PM",
+   "title": "TheMadFanatic Performing Live — A Concert for Broncos Fans",
+   "url": "https://posh.vip/e/themadfanatic-performing-live-a-concert-for-broncos-fans"
   },
   {
    "date": "2026-10-24",
