@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T14:45:07.861Z",
+ "updated": "2026-11-14T15:45:10.404Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -435,10 +435,22 @@
    "url": "https://posh.vip/e/drop-diezel-1"
   },
   {
+   "date": "2026-12-11",
+   "time": "8:00 PM",
+   "title": "Christmas From The Heart",
+   "url": "https://posh.vip/e/christmas-from-the-heart"
+  },
+  {
    "date": "2026-12-12",
    "time": "7:00 PM",
    "title": "L.A.'s Wasted Youth",
    "url": "https://posh.vip/e/las-wasted-youth"
+  },
+  {
+   "date": "2026-12-18",
+   "time": "7:00 PM",
+   "title": "Green Buds & Jam 12 featuring Property Six",
+   "url": "https://posh.vip/e/green-buds-jam-12-featuring-property-six"
   }
  ]
 }
