@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T10:28:19.651Z",
+ "updated": "2026-11-18T21:31:07.528Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -399,12 +399,6 @@
    "url": "https://posh.vip/e/green-jello"
   },
   {
-   "date": "2026-11-21",
-   "time": "7:00 PM",
-   "title": "Atomic Kings — Album Release Party",
-   "url": "https://posh.vip/e/atomic-kings-album-release-party"
-  },
-  {
    "date": "2026-11-24",
    "time": "6:00 PM",
    "title": "A Killer's Confession w/Dizasterpiece, Dead Things w/ Apex Nemesis & Avarist",
@@ -457,6 +451,12 @@
    "time": "8:30 PM",
    "title": "Stryder and Friends",
    "url": "https://posh.vip/e/stryder-and-friends"
+  },
+  {
+   "date": "2027-01-08",
+   "time": "7:00 PM",
+   "title": "Atomic Kings — Album Release Party",
+   "url": "https://posh.vip/e/atomic-kings-album-release-party"
   }
  ]
 }
