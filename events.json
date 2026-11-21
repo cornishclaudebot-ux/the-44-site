@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T21:12:46.773Z",
+ "updated": "2026-11-21T02:14:37.895Z",
  "source": "https://posh.vip/api/web/v2/util/group_url/the44",
  "events": [
   {
@@ -457,6 +457,12 @@
    "time": "7:00 PM",
    "title": "Atomic Kings — Album Release Party",
    "url": "https://posh.vip/e/atomic-kings-album-release-party"
+  },
+  {
+   "date": "2027-03-08",
+   "time": "7:00 PM",
+   "title": "CALL IT OFF",
+   "url": "https://posh.vip/e/call-it-off"
   }
  ]
 }
