@@ -13,8 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 <link rel="canonical" href="https://the44.live/">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":["BarOrPub","NightClub","MusicVenue"],"@id":"https://the44.live/#bar","name":"The 44 Live Music Bar","alternateName":["The 44 Sports Grill & Nightlife","The 44 Sports Bar","The 44 Live","The 44"],"disambiguatingDescription":"Age policy varies by night. Ages 18 and over on Tuesdays from 9:00PM to 2:00AM, 21 and over after 9:00PM on other nights, including Thursday karaoke. Ticketed concerts set their own age limit, listed on each show's ticket page.","amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Ages 18 and over admitted","value":true,"hoursAvailable":[{"@type":"OpeningHoursSpecification","dayOfWeek":["https://schema.org/Tuesday"],"opens":"21:00","closes":"02:00"}]},{"@type":"LocationFeatureSpecification","name":"Live music","value":true},{"@type":"LocationFeatureSpecification","name":"Late night kitchen","value":true}],"url":"https://the44.live/","logo":"https://the44.live/assets/logo.png","image":"https://the44.live/assets/banner-poster.jpg","telephone":"+16238421053","email":"Booking@the44.live","priceRange":"$","servesCuisine":"American","description":"The 44 is a live music bar in Glendale, Arizona, with live music seven nights a week and a late-night kitchen. It is Ages 18 and over from 9:00PM to 2:00AM on Tuesdays and 21 and over after 9:00PM on other nights, including Thursday karaoke, and it is the Glendale home base for DartyForLife's college bar nights.","address":{"@type":"PostalAddress","streetAddress":"4494 W Peoria Ave","addressLocality":"Glendale","addressRegion":"AZ","postalCode":"85302","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":33.5831282,"longitude":-112.1552594},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"13:00","closes":"02:00"}],"publicAccess":true,"smokingAllowed":false,"subjectOf":{"@type":"WebPage","@id":"https://the44.live/18-and-over.html#webpage","url":"https://the44.live/18-and-over.html","name":"Is The 44 18 and Over? Age Policy By Night"},"sameAs":["https://instagram.com/the44live","https://facebook.com/The44AZ","https://tiktok.com/@the44livemusicbar","https://posh.vip/g/the44","https://www.yelp.com/biz/the-44-sports-grill-and-nightlife-glendale","https://www.tripadvisor.com/Restaurant_Review-g31231-d27843757-Reviews-The_44_Sports_Grill_Nightlife-Glendale_Arizona.html","https://www.livenation.com/venue/rZ7HnEZ174o4z/the-44-sports-grill-and-nightlife-events","https://www.bandsintown.com/v/10182330-the-44-sports-grill-and-nightlife","https://www.ticketweb.com/venue/the-44-sports-grill-and-nightlife-glendale-az/551578","https://nextdoor.com/pages/the-44-sports-grill-and-nightlife-glendale-az/","https://www.indieonthemove.com/venues/the-44-sports-grill-nightlife-glendale-arizona"]}
@@ -244,6 +243,7 @@
       </div>
       <div class="visit-map" id="visit-map">
         <div id="themap"></div>
+        <div class="map-attr">&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &middot; <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> &middot; <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a></div>
         <div class="map-card">
           <div class="mc-name">The 44 Live Music Bar</div>
           <div class="mc-addr">4494 W Peoria Ave · Glendale, AZ 85302</div>
@@ -263,24 +263,45 @@
 <script src="fx-dotfield.js"></script>
 <script src="fx-vinyl.js"></script>
 <script src="fx-tonight.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
-  if(typeof L==='undefined') return;
-  var el=document.getElementById('themap'); if(!el) return;
-  var BAR=[33.5831282,-112.1552594];
-  var map=L.map(el,{zoomControl:false,attributionControl:false,scrollWheelZoom:false,dragging:false,doubleClickZoom:false,boxZoom:false,keyboard:false,touchZoom:false}).setView([33.46,-112.07],10);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd'}).addTo(map);
-  var icon=L.divIcon({className:'bar-marker',html:'<span class="bm-ping"></span><svg class="bm-pin" viewBox="0 0 24 34" width="30" height="42"><path d="M12 0C5.9 0 1 4.9 1 11c0 7.7 9.6 21.3 10 21.9.2.3.6.3.8 0C12.4 32.3 23 18.7 23 11 23 4.9 18.1 0 12 0z" fill="#E21B2C" stroke="#ffffff" stroke-width="1.4"/><circle cx="12" cy="11" r="4" fill="#1a0d0d"/></svg>',iconSize:[30,42],iconAnchor:[15,40]});
-  L.marker(BAR,{icon:icon}).addTo(map);
-  var flown=false;
-  function fly(){ if(flown)return; flown=true; setTimeout(function(){ map.invalidateSize(); map.flyTo(BAR,16,{duration:3.6,easeLinearity:.18}); },140); }
+  var el=document.getElementById('themap'), wrap=document.getElementById('visit-map'); if(!el||!wrap) return;
+  var BAR=[-112.1552594,33.5831282];                 // [lng,lat]
+  /* Basemap = OpenFreeMap vector tiles drawn by MapLibre GL: no API key, no
+     account. (CARTO's free tiles began returning an "API KEY REQUIRED"
+     watermark in Nov 2026. Do not go back to a keyed provider.) The library
+     loads only when the map nears the screen. */
+  var MAP_JS='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';
+  var MAP_CSS='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
+  var MAP_STYLE='https://tiles.openfreemap.org/styles/dark';
+  function loadLib(done){
+    if(window.maplibregl) return done();
+    var l=document.createElement('link'); l.rel='stylesheet'; l.href=MAP_CSS; document.head.appendChild(l);
+    var s=document.createElement('script'); s.src=MAP_JS; s.async=true; s.onload=done; document.head.appendChild(s);
+  }
+  function addPin(map,lngLat,html){
+    var outer=document.createElement('div'), inner=document.createElement('div');
+    inner.className='bar-marker'; inner.style.width='30px'; inner.style.height='42px'; inner.innerHTML=html;
+    outer.appendChild(inner);
+    new maplibregl.Marker({element:outer,anchor:'bottom',offset:[0,2]}).setLngLat(lngLat).addTo(map);
+  }
+  var map=null, ready=false, inView=false, flown=false, booting=false;
+  function fly(){ if(flown||!ready||!inView) return; flown=true; map.resize(); var card=wrap.querySelector('.map-card'), pad=card?Math.min(card.offsetHeight+24,wrap.clientHeight-90):0;
+    map.flyTo({center:BAR,zoom:15,duration:3600,essential:true,padding:{top:0,left:0,right:0,bottom:Math.max(pad,0)}}); }
+  function boot(){
+    if(booting) return; booting=true;
+    loadLib(function(){
+      map=new maplibregl.Map({container:el,style:MAP_STYLE,center:[-112.07,33.46],zoom:9,interactive:false,attributionControl:false,fadeDuration:0});
+      addPin(map,BAR,'<span class="bm-ping"></span><svg class="bm-pin" viewBox="0 0 24 34" width="30" height="42"><path d="M12 0C5.9 0 1 4.9 1 11c0 7.7 9.6 21.3 10 21.9.2.3.6.3.8 0C12.4 32.3 23 18.7 23 11 23 4.9 18.1 0 12 0z" fill="#E21B2C" stroke="#ffffff" stroke-width="1.4"/><circle cx="12" cy="11" r="4" fill="#1a0d0d"/></svg>');
+      map.on('load',function(){ ready=true; fly(); });
+    });
+  }
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fly();io.disconnect();}});},{threshold:.3});
-    io.observe(document.getElementById('visit-map'));
-  } else { setTimeout(fly,800); }
-  setTimeout(function(){map.invalidateSize();},400);
-  window.addEventListener('resize',function(){map.invalidateSize();});
+    var near=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){boot();near.disconnect();}});},{rootMargin:'900px 0px'});
+    near.observe(wrap);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){inView=true;fly();io.disconnect();}});},{threshold:.3});
+    io.observe(wrap);
+  } else { inView=true; setTimeout(boot,800); }
 })();
 </script>
 </body>
